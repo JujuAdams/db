@@ -1,6 +1,8 @@
-function __db_class() constructor
+/// @param metadata
+
+function __db_class(_metadata) constructor
 {
-    __metadata = undefined;
+    __metadata = _metadata;
     __data     = undefined;
     __changed  = false;
     

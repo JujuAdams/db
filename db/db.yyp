@@ -24,7 +24,6 @@
     {"id":{"name":"db_delete","path":"scripts/db_delete/db_delete.yy",},"order":3,},
     {"id":{"name":"is_db","path":"scripts/is_db/is_db.yy",},"order":4,},
     {"id":{"name":"db_set_raw_data","path":"scripts/db_set_raw_data/db_set_raw_data.yy",},"order":0,},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":1,},
   ],
   "Options": [
     {"name":"Android","path":"options/android/options_android.yy",},
@@ -45,9 +44,7 @@
     "name": "Default",
     "children": [],
   },
-  "RoomOrderNodes": [
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-  ],
+  "RoomOrderNodes": [],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"db","folderPath":"folders/db.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"(System)","folderPath":"folders/db/(System).yy","order":1,},
