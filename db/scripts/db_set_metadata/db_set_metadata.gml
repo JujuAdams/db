@@ -1,5 +1,5 @@
 /// @param database
-/// @param data
+/// @param metadata
 
 function db_set_metadata(_database, _metadata)
 {

@@ -5,7 +5,7 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "db",
-    "path": "folders/db.yy",
+    "name": "Access",
+    "path": "folders/db/Access.yy",
   },
 }
