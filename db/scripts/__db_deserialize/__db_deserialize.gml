@@ -10,6 +10,7 @@ function __db_deserialize(_string)
         case 1:
             _database = db_create(_json.metadata);
             db_set_data(_database, _json.data, false);
+            db_set_timestamp(_database, _json.timestamp);
         break;
             
         default:
