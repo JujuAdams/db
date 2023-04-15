@@ -4,6 +4,8 @@
 
 <p align="center">Chat about db on the <a href="https://discord.gg/8krYCqr">Discord server</a></p>
 
+&nbsp;
+
 `db_create([metadata=undefined])`
 
 `is_db(value)`
