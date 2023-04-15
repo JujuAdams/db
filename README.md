@@ -10,6 +10,8 @@
 
 `is_db(value)`
 
+`db_has_data(database)`
+
 `db_write(database, value, key, ...)`
 
 `db_read(database, default, key, ...)`
@@ -39,3 +41,11 @@
 `db_set_changed(database, state)`
 
 `db_get_changed(database, [resetState=true])`
+
+`db_set_timestamp(database, timestamp)`
+
+`db_get_timestamp(database)`
+
+`db_most_recent(arrayOfDatabases, [returnIndex=false])`
+
+`db_sort_by_timestamp(arrayOfDatabases, mostRecent)`
