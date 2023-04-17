@@ -24,11 +24,11 @@
 
 `db_clear(database)`
 
-`db_save(database, database, [pretty=false])`
+`db_save(database, database, [pretty=false], [accurateFloats=false])`
 
 `db_load(filename)`
 
-`db_buffer_write(buffer, database, [pretty=false])`
+`db_buffer_write(buffer, database, [pretty=false], [accurateFloats=false])`
 
 `db_buffer_read(buffer)`
 
