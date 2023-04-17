@@ -10,3 +10,5 @@ function __db_class() constructor
         return "<database " + string(ptr(self)) + ">";
     }
 }
+
+show_debug_message("Welcome to db by @jujuadams! This is version 1.0.0, 2023-04-17");
