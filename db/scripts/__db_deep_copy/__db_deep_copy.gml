@@ -1,20 +1,9 @@
-/// @returm Copy of the given struct/array, including a copy of any nested structs and arrays
-/// 
-/// This function is designed to copy simple tree-like structures that have been imported from SNAP functions.
-/// It can be used in general to recursively copy struct/arrays. Be careful that your data doesn't have reference loops!
-/// 
-/// N.B. Sequences structs are not "real" structs in GameMaker and cannot be copied in their entirety.
-/// 
-/// @param struct/array   The struct/array to be copied
-/// 
-/// @jujuadams 2022-10-30
-
-function SnapDeepCopy(_value)
+function __db_deep_copy(_value)
 {
-    return __SnapDeepCopyInner(_value, self, self);
+    return __db_deep_copy_inner(_value, self, self);
 }
 
-function __SnapDeepCopyInner(_value, _oldStruct, _newStruct)
+function __db_deep_copy_inner(_value, _oldStruct, _newStruct)
 {
     var _copy = _value;
     
@@ -29,7 +18,7 @@ function __SnapDeepCopyInner(_value, _oldStruct, _newStruct)
         else if (_self != undefined)
         {
             //If the scope of the method isn't <undefined> (global) then spit out a warning
-            show_debug_message("SnapDeepCopy(): Warning! Deep copy found a method reference that could not be appropriately handled");
+            show_debug_message("__db_deep_copy(): Warning! Deep copy found a method reference that could not be appropriately handled");
         }
     }
     else if (is_struct(_value))
@@ -40,7 +29,7 @@ function __SnapDeepCopyInner(_value, _oldStruct, _newStruct)
         repeat(array_length(_namesArray))
         {
             var _name = _namesArray[_i];
-            _copy[$ _name] = __SnapDeepCopyInner(_value[$ _name], _value, _copy);
+            _copy[$ _name] = __db_deep_copy_inner(_value[$ _name], _value, _copy);
             ++_i;
         }
     }
@@ -51,7 +40,7 @@ function __SnapDeepCopyInner(_value, _oldStruct, _newStruct)
         var _i = 0;
         repeat(_count)
         {
-            _copy[@ _i] = __SnapDeepCopyInner(_value[_i], _oldStruct, _newStruct);
+            _copy[@ _i] = __db_deep_copy_inner(_value[_i], _oldStruct, _newStruct);
             ++_i;
         }
     }

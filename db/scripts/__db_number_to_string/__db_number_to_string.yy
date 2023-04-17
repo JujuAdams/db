@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "SnapDeepCopy",
+  "name": "__db_number_to_string",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

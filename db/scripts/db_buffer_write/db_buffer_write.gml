@@ -4,7 +4,7 @@
 
 function db_buffer_write(_buffer, _database, _pretty = false)
 {
-    SnapBufferWriteJSON(_buffer,
+    __db_buffer_write_json(_buffer,
                         {
                             database:  _database.__data,
                             metadata:  _database.__metadata,

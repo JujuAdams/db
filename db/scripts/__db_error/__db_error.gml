@@ -1,5 +1,3 @@
-/// @param value
-
 function __db_error() 
 {
 	var _string = "DB:\n";

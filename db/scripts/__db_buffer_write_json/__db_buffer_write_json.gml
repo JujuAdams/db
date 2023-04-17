@@ -1,23 +1,13 @@
-/// @return JSON string that encodes the struct/array nested data
-/// 
-/// @param buffer                Buffer to write data into
-/// @param struct/array          The data to be encoded. Can contain structs, arrays, strings, and numbers.   N.B. Will not encode ds_list, ds_map etc.
-/// @param [pretty]              (bool) Whether to format the string to be human readable. Defaults to <false>
-/// @param [alphabetizeStructs]  (bool) Sorts struct variable names is ascending alphabetical order as per ds_list_sort(). Defaults to <false>
-/// @param [accurateFloats]      (bool) Whether to output floats at a higher accuracy than GM normally defaults to. Defaults to <false>. Setting this to <true> confers a performance penalty
-/// 
-/// @jujuadams 2022-10-30
-
-function SnapBufferWriteJSON(_buffer, _value, _pretty = false, _alphabetise = false, _accurateFloats = false)
+function __db_buffer_write_json(_buffer, _value, _pretty = false, _alphabetise = false, _accurateFloats = false)
 {
-    return __SnapToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accurateFloats, "");
+    return __db_to_json_buffer_value(_buffer, _value, _pretty, _alphabetise, _accurateFloats, "");
 }
 
-function __SnapToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accurateFloats, _indent)
+function __db_to_json_buffer_value(_buffer, _value, _pretty, _alphabetise, _accurateFloats, _indent)
 {
     if (is_real(_value) || is_int32(_value) || is_int64(_value))
     {
-        buffer_write(_buffer, buffer_text, SnapNumberToString(_value, _accurateFloats));
+        buffer_write(_buffer, buffer_text, __db_number_to_string(_value, _accurateFloats));
     }
     else if (is_string(_value))
     {
@@ -54,7 +44,7 @@ function __SnapToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accura
                 repeat(_count)
                 {
                     buffer_write(_buffer, buffer_text, _indent);
-                    __SnapToJSONBufferValue(_buffer, _array[_i], _pretty, _alphabetise, _accurateFloats, _indent);
+                    __db_to_json_buffer_value(_buffer, _array[_i], _pretty, _alphabetise, _accurateFloats, _indent);
                     buffer_write(_buffer, buffer_u16, 0x0A2C); //Comma + newline
                     ++_i;
                 }
@@ -73,7 +63,7 @@ function __SnapToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accura
                 var _i = 0;
                 repeat(_count)
                 {
-                    __SnapToJSONBufferValue(_buffer, _array[_i], _pretty, _alphabetise, _accurateFloats, _indent);
+                    __db_to_json_buffer_value(_buffer, _array[_i], _pretty, _alphabetise, _accurateFloats, _indent);
                     buffer_write(_buffer, buffer_u8, 0x2C); //Comma
                     ++_i;
                 }
@@ -114,14 +104,14 @@ function __SnapToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accura
                 repeat(_count)
                 {
                     var _name = _names[_i];
-                    if (!is_string(_name)) show_error("SNAP:\nKeys must be strings\n ", true);
+                    if (!is_string(_name)) show_error("__db_buffer_write_json:\nKeys must be strings\n ", true);
                     
                     buffer_write(_buffer, buffer_text, _indent);
                     buffer_write(_buffer, buffer_u8,   0x22); // Double quote
                     buffer_write(_buffer, buffer_text, string(_name));
                     buffer_write(_buffer, buffer_u32,  0x203A2022); // <" : >
                     
-                    __SnapToJSONBufferValue(_buffer, _struct[$ _name], _pretty, _alphabetise, _accurateFloats, _indent);
+                    __db_to_json_buffer_value(_buffer, _struct[$ _name], _pretty, _alphabetise, _accurateFloats, _indent);
                     
                     buffer_write(_buffer, buffer_u16, 0x0A2C); //Comma + newline
                     
@@ -143,13 +133,13 @@ function __SnapToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accura
                 repeat(_count)
                 {
                     var _name = _names[_i];
-                    if (!is_string(_name)) show_error("SNAP:\nKeys must be strings\n ", true);
+                    if (!is_string(_name)) show_error("__db_buffer_write_json:\nKeys must be strings\n ", true);
                     
                     buffer_write(_buffer, buffer_u8,   0x22); // Double quote
                     buffer_write(_buffer, buffer_text, string(_name));
                     buffer_write(_buffer, buffer_u16,  0x3A22); // Double quote then colon
                     
-                    __SnapToJSONBufferValue(_buffer, _struct[$ _name], _pretty, _alphabetise, _accurateFloats, _indent);
+                    __db_to_json_buffer_value(_buffer, _struct[$ _name], _pretty, _alphabetise, _accurateFloats, _indent);
                     
                     buffer_write(_buffer, buffer_u8, 0x2C); //Comma
                     

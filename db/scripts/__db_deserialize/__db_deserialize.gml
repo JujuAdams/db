@@ -1,5 +1,3 @@
-/// @param string
-
 function __db_deserialize(_string)
 {
     var _database = undefined;

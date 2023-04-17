@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "SnapNumberToString",
+  "name": "__db_deep_copy",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
