@@ -1,9 +1,6 @@
-/// @param metadata
-/// @param timestamp
-
-function __db_class(_metadata) constructor
+function __db_class() constructor
 {
-    __metadata  = _metadata;
+    __metadata  = undefined;
     __data      = undefined;
     __changed   = false;
     __timestamp = date_current_datetime();

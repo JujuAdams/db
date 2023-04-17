@@ -1,6 +1,4 @@
-/// @param [metadata=undefined]
-
-function db_create(_metadata = undefined)
+function db_create()
 {
-    return new __db_class(_metadata);
+    return new __db_class();
 }
