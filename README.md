@@ -6,7 +6,9 @@
 
 &nbsp;
 
-`db_create([metadata=undefined])`
+`db_create()`
+
+`db_duplicate(database)`
 
 `is_db(value)`
 
