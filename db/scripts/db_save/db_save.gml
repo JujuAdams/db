@@ -4,9 +4,8 @@
 
 function db_save(_database, _filename, _pretty = false)
 {
-    var _string = __db_serialize(_database, _pretty);
-    var _buffer = buffer_create(string_byte_length(_string), buffer_fixed, 1);
-    buffer_write(_buffer, buffer_text, _string);
-    buffer_save(_buffer, _filename);
+    var _buffer = buffer_create(1024, buffer_grow, 1);
+    db_buffer_write(_buffer, _database, _pretty);
+    buffer_save_ext(_buffer, _filename, 0, buffer_tell(_buffer));
     buffer_delete(_buffer);
 }

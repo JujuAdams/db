@@ -4,5 +4,12 @@
 
 function db_buffer_write(_buffer, _database, _pretty = false)
 {
-    buffer_write(_buffer, buffer_text, __db_serialize(_database, _pretty));
+    SnapBufferWriteJSON(_buffer,
+                        {
+                            database:  _database.__data,
+                            metadata:  _database.__metadata,
+                            timestamp: _database.__timestamp,
+                            version:   1,
+                        },
+                        _pretty, _pretty, true);
 }

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "__db_serialize",
+  "name": "SnapBufferWriteJSON",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
