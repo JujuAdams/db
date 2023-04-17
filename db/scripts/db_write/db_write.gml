@@ -12,11 +12,11 @@ function db_write(_database, _set_value)
         var _node = __data;
         if (_node == undefined)
         {
-            if (is_string(argument[1]))
+            if (is_string(argument[2]))
             {
                 _node = {};
             }
-            else if (is_numeric(argument[1]))
+            else if (is_numeric(argument[2]))
             {
                 _node = [];
             }
