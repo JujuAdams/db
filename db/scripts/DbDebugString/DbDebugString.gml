@@ -3,5 +3,5 @@
 
 function DbDebugString(_database, _ascii = false)
 {
-    return __DbJSONVisualization(DbRawDataGet(_database), _ascii);
+    return __DbJSONVisualize(DbRawDataGet(_database), _ascii);
 }

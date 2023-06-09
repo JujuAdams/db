@@ -6,7 +6,7 @@
     {"id":{"name":"DbExists","path":"scripts/DbExists/DbExists.yy",},"order":3,},
     {"id":{"name":"DbRawDataGet","path":"scripts/DbRawDataGet/DbRawDataGet.yy",},"order":1,},
     {"id":{"name":"oTest","path":"objects/oTest/oTest.yy",},"order":3,},
-    {"id":{"name":"__DbJSONVisualization","path":"scripts/__DbJSONVisualization/__DbJSONVisualization.yy",},"order":8,},
+    {"id":{"name":"__DbJSONVisualize","path":"scripts/__DbJSONVisualize/__DbJSONVisualize.yy",},"order":8,},
     {"id":{"name":"DbSave","path":"scripts/DbSave/DbSave.yy",},"order":0,},
     {"id":{"name":"DbTimestampSet","path":"scripts/DbTimestampSet/DbTimestampSet.yy",},"order":6,},
     {"id":{"name":"DbMetadataSet","path":"scripts/DbMetadataSet/DbMetadataSet.yy",},"order":2,},
