@@ -2,8 +2,8 @@
 /// @param data
 /// @param [setChanged=false]
 
-function dbRawDataSet(_database, _data, _set_changed = false)
+function dbRawDataSet(_database, _data, _setChanged = false)
 {
     _database.__data = _data;
-    if (_set_changed) _database.__changed = true;
+    if (_setChanged) _database.__changed = true;
 }

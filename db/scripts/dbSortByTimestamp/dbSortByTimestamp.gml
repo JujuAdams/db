@@ -1,9 +1,9 @@
 /// @param arrayOfDatabases
 /// @param mostRecent
 
-function dbSortByTimestamp(_array, _most_recent)
+function dbSortByTimestamp(_array, _mostRecent)
 {
-    if (_most_recent)
+    if (_mostRecent)
     {
         array_sort(_array, function(_a, _b)
         {

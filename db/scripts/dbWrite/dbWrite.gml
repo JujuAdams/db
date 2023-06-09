@@ -3,7 +3,7 @@
 /// @param key
 /// @param ...
 
-function dbWrite(_database, _set_value)
+function dbWrite(_database, _setValue)
 {
     if (argument_count < 3) __dbError("Incorrect number of arguments (got ", argument_count, ", was expecting at least 3)");
     
@@ -45,8 +45,8 @@ function dbWrite(_database, _set_value)
                     if (_i >= argument_count-1)
                     {
                         //Final key, write to the struct
-                        if (_node[$ _key] != _set_value) _changed = true;
-                        _node[$ _key] = _set_value;
+                        if (_node[$ _key] != _setValue) _changed = true;
+                        _node[$ _key] = _setValue;
                     }
                     else
                     {
@@ -60,9 +60,9 @@ function dbWrite(_database, _set_value)
                     if (_i >= argument_count-1)
                     {
                         //Final key, write to the struct
-                        if (_node[$ _key] != _set_value)
+                        if (_node[$ _key] != _setValue)
                         {
-                            _node[$ _key] = _set_value;
+                            _node[$ _key] = _setValue;
                             _changed = true;
                         }
                     }
@@ -95,9 +95,9 @@ function dbWrite(_database, _set_value)
                     if (_i >= argument_count-1)
                     {
                         //Final key, write to the array
-                        if (_node[@ _key] != _set_value)
+                        if (_node[@ _key] != _setValue)
                         {
-                            _node[@ _key] = _set_value;
+                            _node[@ _key] = _setValue;
                             _changed = true;
                         }
                     }
@@ -127,13 +127,13 @@ function dbWrite(_database, _set_value)
                     {
                         if (_i >= argument_count-1)
                         {
-                            if (_node[_key] != _set_value) _changed = true;
+                            if (_node[_key] != _setValue) _changed = true;
                         }
                     }
                     
                     if (_i >= argument_count-1)
                     {
-                        _node[@ _key] = _set_value;
+                        _node[@ _key] = _setValue;
                     }
                     else
                     {
@@ -164,7 +164,7 @@ function dbWrite(_database, _set_value)
             ++_i;
         }
         
-        if (is_struct(_set_value) || is_array(_set_value)) _changed = true;
+        if (is_struct(_setValue) || is_array(_setValue)) _changed = true;
         if (_changed) __changed = true;
     }
 }

@@ -1,25 +1,25 @@
 /// @param arrayOfDatabases
 /// @param [returnIndex=false]
 
-function dbMostRecent(_array, _return_index = false)
+function dbMostRecent(_array, _returnIndex = false)
 {
-    var _max_database  = undefined;
-    var _max_index     = undefined;
-    var _max_timestamp = -infinity;
+    var _max_database = undefined;
+    var _max_index    = undefined;
+    var _maxTimestamp = -infinity;
     
     var _i = 0;
     repeat(array_length(_array))
     {
         var _database = _array[_i];
-        if (_database.__timestamp > _max_timestamp)
+        if (_database.__timestamp > _maxTimestamp)
         {
-            _max_database  = _database;
-            _max_index     = _i;
-            _max_timestamp = _database.__timestamp;
+            _max_database = _database;
+            _max_index    = _i;
+            _maxTimestamp = _database.__timestamp;
         }
         
         ++_i;
     }
     
-    return _return_index? _max_index : _max_timestamp;
+    return _returnIndex? _max_index : _maxTimestamp;
 }

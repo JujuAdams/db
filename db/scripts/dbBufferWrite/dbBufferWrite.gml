@@ -3,7 +3,7 @@
 /// @param [pretty=false]
 /// @param [accurateFloats=false]
 
-function dbBufferWrite(_buffer, _database, _pretty = false, _accurate_floats = false)
+function dbBufferWrite(_buffer, _database, _pretty = false, _accurateFloats = false)
 {
     __dbBufferWriteJSON(_buffer,
                            {
@@ -12,5 +12,5 @@ function dbBufferWrite(_buffer, _database, _pretty = false, _accurate_floats = f
                                timestamp: _database.__timestamp,
                                version:   __DB_FILE_VERSION,
                            },
-                           _pretty, _pretty, _accurate_floats);
+                           _pretty, _pretty, _accurateFloats);
 }

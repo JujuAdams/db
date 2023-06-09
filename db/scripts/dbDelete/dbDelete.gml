@@ -28,7 +28,7 @@ function dbDelete(_database)
                     if (variable_struct_exists(_node, _key))
                     {
                         variable_struct_remove(_node, _key);
-                        SetChanged(true);
+                        dbChangedSet(self, true);
                     }
                 }
                 else
@@ -53,7 +53,7 @@ function dbDelete(_database)
                 if (_i >= argument_count-1)
                 {
                     array_delete(_node, _key, 1);
-                    SetChanged(true);
+                    dbChangedSet(self, true);
                 }
                 else
                 {
