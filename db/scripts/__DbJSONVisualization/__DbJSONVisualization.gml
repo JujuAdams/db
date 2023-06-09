@@ -68,7 +68,7 @@ function __DbJSONVisualizationInner(_buffer, _prefix, _value)
     {
         if (array_length(_value) <= 0)
         {
-            buffer_write(_buffer, buffer_text, " []");
+            buffer_write(_buffer, buffer_text, "[]");
         }
         else
         {
