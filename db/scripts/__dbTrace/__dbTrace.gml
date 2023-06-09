@@ -1,6 +1,6 @@
-function __dbTrace() 
+function __DbTrace() 
 {
-	var _string = "db: ";
+	var _string = "Db: ";
     
 	var _i = 0;
 	repeat(argument_count)

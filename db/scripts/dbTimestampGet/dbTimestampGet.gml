@@ -1,6 +1,6 @@
 /// @param database
 
-function dbTimestampGet(_database)
+function DbTimestampGet(_database)
 {
     return _database.__timestamp;
 }

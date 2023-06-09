@@ -1,7 +1,7 @@
 /// @param arrayOfDatabases
 /// @param mostRecent
 
-function dbSortByTimestamp(_array, _mostRecent)
+function DbSortByTimestamp(_array, _mostRecent)
 {
     if (_mostRecent)
     {

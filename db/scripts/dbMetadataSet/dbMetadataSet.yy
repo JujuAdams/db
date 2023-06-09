@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "dbMetadataSet",
+  "name": "DbMetadataSet",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

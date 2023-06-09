@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "dbHasData",
+  "name": "DbHasData",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

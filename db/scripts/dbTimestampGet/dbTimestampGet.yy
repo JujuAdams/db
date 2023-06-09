@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "dbTimestampGet",
+  "name": "DbTimestampGet",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

@@ -1,6 +1,6 @@
 /// @param database
 
-function dbHasData(_database)
+function DbHasData(_database)
 {
     return (_database.__data != undefined);
 }

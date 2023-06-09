@@ -1,6 +1,6 @@
 /// @param database
 
-function dbRawDataGet(_database)
+function DbRawDataGet(_database)
 {
     return _database.__data;
 }

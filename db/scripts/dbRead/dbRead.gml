@@ -3,9 +3,9 @@
 /// @param key
 /// @param ...
 
-function dbRead(_database, _default)
+function DbRead(_database, _default)
 {
-    if (argument_count < 3) __dbError("Incorrect number of arguments (got ", argument_count, ", was expecting at least 3)");
+    if (argument_count < 3) __DbError("Incorrect number of arguments (got ", argument_count, ", was expecting at least 3)");
     
     with(_database)
     {
@@ -21,7 +21,7 @@ function dbRead(_database, _default)
             {
                 if (!is_struct(_value))
                 {
-                    __dbError("Key provided is a string (", _key, ") but current data structure is not a struct");
+                    __DbError("Key provided is a string (", _key, ") but current data structure is not a struct");
                 }
                 
                 if (!variable_struct_exists(_value, _key)) return _default;
@@ -32,12 +32,12 @@ function dbRead(_database, _default)
             {
                 if (!is_array(_value))
                 {
-                    __dbError("Key provided is a number (", _key, ") but current data structure is not an array");
+                    __DbError("Key provided is a number (", _key, ") but current data structure is not an array");
                 }
                 
                 if (_key < 0)
                 {
-                    __dbError("Array index is less than 0 (", _key, ")");
+                    __DbError("Array index is less than 0 (", _key, ")");
                 }
                 
                 if (_key >= array_length(_value)) return _default;
@@ -46,7 +46,7 @@ function dbRead(_database, _default)
             }
             else
             {
-                __dbError("Key must be a string (struct access) or a number (array access)\nKey was ", typeof(_key));
+                __DbError("Key must be a string (struct access) or a number (array access)\nKey was ", typeof(_key));
             }
             
             ++_i;

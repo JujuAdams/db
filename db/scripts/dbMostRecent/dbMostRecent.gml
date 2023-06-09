@@ -1,7 +1,7 @@
 /// @param arrayOfDatabases
 /// @param [returnIndex=false]
 
-function dbMostRecent(_array, _returnIndex = false)
+function DbMostRecent(_array, _returnIndex = false)
 {
     var _max_database = undefined;
     var _max_index    = undefined;

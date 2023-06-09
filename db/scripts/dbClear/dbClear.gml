@@ -1,6 +1,6 @@
 /// @param database
 
-function dbClear(_database)
+function DbClear(_database)
 {
     with(_database)
     {

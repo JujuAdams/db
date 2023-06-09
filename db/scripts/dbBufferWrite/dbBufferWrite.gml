@@ -3,9 +3,9 @@
 /// @param [pretty=false]
 /// @param [accurateFloats=false]
 
-function dbBufferWrite(_buffer, _database, _pretty = false, _accurateFloats = false)
+function DbBufferWrite(_buffer, _database, _pretty = false, _accurateFloats = false)
 {
-    __dbBufferWriteJSON(_buffer,
+    __DbBufferWriteJSON(_buffer,
                            {
                                data:      _database.__data,
                                metadata:  _database.__metadata,

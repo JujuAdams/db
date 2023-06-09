@@ -2,7 +2,7 @@
 /// @param key
 /// @param ...
 
-function dbExists(_database)
+function DbExists(_database)
 {
     with(_database)
     {
@@ -18,7 +18,7 @@ function dbExists(_database)
             {
                 if (!is_struct(_node))
                 {
-                    __dbError("Key provided is a string (", _key, ") but current data structure is not a struct");
+                    __DbError("Key provided is a string (", _key, ") but current data structure is not a struct");
                 }
                 
                 if (!variable_struct_exists(_node, _key)) return false;
@@ -29,12 +29,12 @@ function dbExists(_database)
             {
                 if (!is_array(_node))
                 {
-                    __dbError("Key provided is a number (", _key, ") but current data structure is not an array");
+                    __DbError("Key provided is a number (", _key, ") but current data structure is not an array");
                 }
                 
                 if (_key < 0)
                 {
-                    __dbError("Array index is less than 0 (", _key, ")");
+                    __DbError("Array index is less than 0 (", _key, ")");
                 }
                 
                 if (_key >= array_length(_node)) return false;
@@ -43,7 +43,7 @@ function dbExists(_database)
             }
             else
             {
-                __dbError("Key must be a string (struct access) or a number (array access)\nKey was ", typeof(_key));
+                __DbError("Key must be a string (struct access) or a number (array access)\nKey was ", typeof(_key));
             }
         
             ++_i;

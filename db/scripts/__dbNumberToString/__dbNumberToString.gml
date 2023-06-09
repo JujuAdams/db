@@ -1,4 +1,4 @@
-function __dbNumberToString(_value, _accurateFloats)
+function __DbNumberToString(_value, _accurateFloats)
 {
     if (_accurateFloats && is_real(_value) && (floor(_value) != _value))
     {

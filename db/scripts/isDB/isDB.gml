@@ -1,6 +1,6 @@
 /// @param value
 
-function is_db(_value)
+function IsDb(_value)
 {
-    return (is_struct(_value) && (instanceof(_value) == "__dbClass"));
+    return (is_struct(_value) && (instanceof(_value) == "__DbClass"));
 }

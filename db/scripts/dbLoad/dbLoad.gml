@@ -1,6 +1,6 @@
-function dbLoad(_filename)
+function DbLoad(_filename)
 {
-    if (!file_exists(_filename)) __dbError("Could not find \"", _filename, "\"");
+    if (!file_exists(_filename)) __DbError("Could not find \"", _filename, "\"");
     
     var _buffer   = undefined;
     var _database = undefined;
@@ -8,7 +8,7 @@ function dbLoad(_filename)
     try
     {
         _buffer = buffer_load(_filename);
-        _database = __dbDeserialize(buffer_read(_buffer, buffer_text));
+        _database = __DbDeserialize(buffer_read(_buffer, buffer_text));
         buffer_delete(_buffer);
     }
     catch(_error)

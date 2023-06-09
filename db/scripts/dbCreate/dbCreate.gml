@@ -1,4 +1,4 @@
-function dbCreate()
+function DbCreate()
 {
-    return new __dbClass();
+    return new __DbClass();
 }

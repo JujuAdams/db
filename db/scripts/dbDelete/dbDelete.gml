@@ -2,7 +2,7 @@
 /// @param key
 /// @param ...
 
-function dbDelete(_database)
+function DbDelete(_database)
 {
     with(_database)
     {
@@ -18,7 +18,7 @@ function dbDelete(_database)
             {
                 if (!is_struct(_node))
                 {
-                    __dbError("Key provided is a string (", _key, ") but current data structure is not a struct");
+                    __DbError("Key provided is a string (", _key, ") but current data structure is not a struct");
                 }
                 
                 if (!variable_struct_exists(_node, _key)) return;
@@ -28,7 +28,7 @@ function dbDelete(_database)
                     if (variable_struct_exists(_node, _key))
                     {
                         variable_struct_remove(_node, _key);
-                        dbChangedSet(self, true);
+                        DbChangedSet(self, true);
                     }
                 }
                 else
@@ -40,12 +40,12 @@ function dbDelete(_database)
             {
                 if (!is_array(_node))
                 {
-                    __dbError("Key provided is a number (", _key, ") but current data structure is not an array");
+                    __DbError("Key provided is a number (", _key, ") but current data structure is not an array");
                 }
                 
                 if (_key < 0)
                 {
-                    __dbError("Array index is less than 0 (", _key, ")");
+                    __DbError("Array index is less than 0 (", _key, ")");
                 }
                 
                 if (_key >= array_length(_node)) return;
@@ -53,7 +53,7 @@ function dbDelete(_database)
                 if (_i >= argument_count-1)
                 {
                     array_delete(_node, _key, 1);
-                    dbChangedSet(self, true);
+                    DbChangedSet(self, true);
                 }
                 else
                 {
@@ -62,7 +62,7 @@ function dbDelete(_database)
             }
             else
             {
-                __dbError("Key must be a string (struct access) or a number (array access)\nKey was ", typeof(_key));
+                __DbError("Key must be a string (struct access) or a number (array access)\nKey was ", typeof(_key));
             }
             
             ++_i;

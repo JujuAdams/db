@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "__dbNumberToString",
+  "name": "__DbNumberToString",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

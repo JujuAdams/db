@@ -1,6 +1,6 @@
-function __dbError() 
+function __DbError() 
 {
-	var _string = "db:\n";
+	var _string = "Db:\n";
     
 	var _i = 0;
 	repeat(argument_count)

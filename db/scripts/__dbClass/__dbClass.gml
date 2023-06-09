@@ -1,4 +1,4 @@
-function __dbClass() constructor
+function __DbClass() constructor
 {
     __metadata  = undefined;
     __data      = undefined;

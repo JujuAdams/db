@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "__dbDeserialize",
+  "name": "__DbDeserialize",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

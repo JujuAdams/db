@@ -1,9 +1,9 @@
-function __dbDeepCopy(_value)
+function __DbDeepCopy(_value)
 {
-    return __dbDeepCopyInner(_value, self, self);
+    return __DbDeepCopyInner(_value, self, self);
 }
 
-function __dbDeepCopyInner(_value, _oldStruct, _newStruct)
+function __DbDeepCopyInner(_value, _oldStruct, _newStruct)
 {
     var _copy = _value;
     
@@ -18,7 +18,7 @@ function __dbDeepCopyInner(_value, _oldStruct, _newStruct)
         else if (_self != undefined)
         {
             //If the scope of the method isn't <undefined> (global) then spit out a warning
-            show_debug_message("__dbDeepCopy(): Warning! Deep copy found a method reference that could not be appropriately handled");
+            show_debug_message("__DbDeepCopy(): Warning! Deep copy found a method reference that could not be appropriately handled");
         }
     }
     else if (is_struct(_value))
@@ -29,7 +29,7 @@ function __dbDeepCopyInner(_value, _oldStruct, _newStruct)
         repeat(array_length(_namesArray))
         {
             var _name = _namesArray[_i];
-            _copy[$ _name] = __dbDeepCopyInner(_value[$ _name], _value, _copy);
+            _copy[$ _name] = __DbDeepCopyInner(_value[$ _name], _value, _copy);
             ++_i;
         }
     }
@@ -40,7 +40,7 @@ function __dbDeepCopyInner(_value, _oldStruct, _newStruct)
         var _i = 0;
         repeat(_count)
         {
-            _copy[@ _i] = __dbDeepCopyInner(_value[_i], _oldStruct, _newStruct);
+            _copy[@ _i] = __DbDeepCopyInner(_value[_i], _oldStruct, _newStruct);
             ++_i;
         }
     }

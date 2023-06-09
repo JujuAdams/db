@@ -3,4 +3,4 @@
 
 #macro __DB_FILE_VERSION  1
 
-__dbTrace("Welcome to db by @jujuadams! This is version " + __DB_VERSION + ", " + __DB_DATE);
+__DbTrace("Welcome to db by @jujuadams! This is version " + __DB_VERSION + ", " + __DB_DATE);

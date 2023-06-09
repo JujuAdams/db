@@ -1,6 +1,6 @@
 /// @param buffer
 
-function dbBufferRead(_buffer)
+function DbBufferRead(_buffer)
 {
-    return __dbDeserialize(buffer_read(_buffer, buffer_string));
+    return __DbDeserialize(buffer_read(_buffer, buffer_string));
 }

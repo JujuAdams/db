@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "dbLoad",
+  "name": "DbLoad",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

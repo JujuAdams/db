@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "dbChangedSet",
+  "name": "DbChangedSet",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

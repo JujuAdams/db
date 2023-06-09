@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "dbExists",
+  "name": "DbExists",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

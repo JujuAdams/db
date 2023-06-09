@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "__dbDeepCopy",
+  "name": "__DbDeepCopy",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

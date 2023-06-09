@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "__dbError",
+  "name": "__DbError",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

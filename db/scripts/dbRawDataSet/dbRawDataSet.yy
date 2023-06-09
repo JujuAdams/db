@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "dbRawDataSet",
+  "name": "DbRawDataSet",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

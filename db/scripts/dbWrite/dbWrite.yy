@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "dbWrite",
+  "name": "DbWrite",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

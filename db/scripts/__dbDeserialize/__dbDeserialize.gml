@@ -1,4 +1,4 @@
-function __dbDeserialize(_string)
+function __DbDeserialize(_string)
 {
     var _database = undefined;
     
@@ -6,14 +6,14 @@ function __dbDeserialize(_string)
     switch(_json.version)
     {
         case 1:
-            _database = dbCreate();
-            dbMetadataSet(_database, _json.metadata);
-            dbRawDataSet(_database, _json.data, false);
-            dbTimestampSet(_database, _json.timestamp);
+            _database = DbCreate();
+            DbMetadataSet(_database, _json.metadata);
+            DbRawDataSet(_database, _json.data, false);
+            DbTimestampSet(_database, _json.timestamp);
         break;
             
         default:
-            __dbError("Unsupported version ", _json.version);
+            __DbError("Unsupported version ", _json.version);
         break;
     }
     

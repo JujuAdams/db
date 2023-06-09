@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "dbBufferRead",
+  "name": "DbBufferRead",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

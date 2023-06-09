@@ -3,9 +3,9 @@
 /// @param key
 /// @param ...
 
-function dbWrite(_database, _setValue)
+function DbWrite(_database, _setValue)
 {
-    if (argument_count < 3) __dbError("Incorrect number of arguments (got ", argument_count, ", was expecting at least 3)");
+    if (argument_count < 3) __DbError("Incorrect number of arguments (got ", argument_count, ", was expecting at least 3)");
     
     with(_database)
     {
@@ -22,7 +22,7 @@ function dbWrite(_database, _setValue)
             }
             else
             {
-                __dbError("Keys must be strings (struct access) or numbers (array access)\nKey was ", typeof(argument[1]));
+                __DbError("Keys must be strings (struct access) or numbers (array access)\nKey was ", typeof(argument[1]));
             }
             
             __data = _node;
@@ -38,7 +38,7 @@ function dbWrite(_database, _setValue)
             
             if (is_string(_key))
             {
-                if (!is_struct(_node)) __dbError("Key provided is a string (", _key, ") but current data structure is not a struct");
+                if (!is_struct(_node)) __DbError("Key provided is a string (", _key, ") but current data structure is not a struct");
                 
                 if (variable_struct_exists(_node, _key))
                 {
@@ -80,15 +80,15 @@ function dbWrite(_database, _setValue)
                     }
                     else
                     {
-                        __dbError("Key must be a string (struct access) or a number (array access)\nKey was ", typeof(_key));
+                        __DbError("Key must be a string (struct access) or a number (array access)\nKey was ", typeof(_key));
                     }
                 }
             }
             else if (is_numeric(_key))
             {
-                if (!is_array(_node)) __dbError("Key provided is a number (", _key, ") but current data structure is not an array");
+                if (!is_array(_node)) __DbError("Key provided is a number (", _key, ") but current data structure is not an array");
                 
-                if (_key < 0) __dbError("Array index is less than 0 (", _key, ")");
+                if (_key < 0) __DbError("Array index is less than 0 (", _key, ")");
                 
                 if (_key < array_length(_node))
                 {
@@ -151,14 +151,14 @@ function dbWrite(_database, _setValue)
                         }
                         else
                         {
-                            __dbError("Key must be a string (struct access) or a number (array access)\nKey was ", typeof(_key));
+                            __DbError("Key must be a string (struct access) or a number (array access)\nKey was ", typeof(_key));
                         }
                     }
                 }
             }
             else
             {
-                __dbError("Key must be a string (struct access) or a number (array access)\nKey was ", typeof(_key));
+                __DbError("Key must be a string (struct access) or a number (array access)\nKey was ", typeof(_key));
             }
             
             ++_i;

@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "dbClear",
+  "name": "DbClear",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

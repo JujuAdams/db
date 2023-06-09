@@ -1,13 +1,13 @@
-function __dbBufferWriteJSON(_buffer, _value, _pretty = false, _alphabetise = false, _accurateFloats = false)
+function __DbBufferWriteJSON(_buffer, _value, _pretty = false, _alphabetise = false, _accurateFloats = false)
 {
-    return __dbToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accurateFloats, "");
+    return __DbToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accurateFloats, "");
 }
 
-function __dbToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accurateFloats, _indent)
+function __DbToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accurateFloats, _indent)
 {
     if (is_real(_value) || is_int32(_value) || is_int64(_value))
     {
-        buffer_write(_buffer, buffer_text, __dbNumberToString(_value, _accurateFloats));
+        buffer_write(_buffer, buffer_text, __DbNumberToString(_value, _accurateFloats));
     }
     else if (is_string(_value))
     {
@@ -44,7 +44,7 @@ function __dbToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accurate
                 repeat(_count)
                 {
                     buffer_write(_buffer, buffer_text, _indent);
-                    __dbToJSONBufferValue(_buffer, _array[_i], _pretty, _alphabetise, _accurateFloats, _indent);
+                    __DbToJSONBufferValue(_buffer, _array[_i], _pretty, _alphabetise, _accurateFloats, _indent);
                     buffer_write(_buffer, buffer_u16, 0x0A2C); //Comma + newline
                     ++_i;
                 }
@@ -63,7 +63,7 @@ function __dbToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accurate
                 var _i = 0;
                 repeat(_count)
                 {
-                    __dbToJSONBufferValue(_buffer, _array[_i], _pretty, _alphabetise, _accurateFloats, _indent);
+                    __DbToJSONBufferValue(_buffer, _array[_i], _pretty, _alphabetise, _accurateFloats, _indent);
                     buffer_write(_buffer, buffer_u8, 0x2C); //Comma
                     ++_i;
                 }
@@ -104,14 +104,14 @@ function __dbToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accurate
                 repeat(_count)
                 {
                     var _name = _names[_i];
-                    if (!is_string(_name)) show_error("__dbBufferWriteJSON:\nKeys must be strings\n ", true);
+                    if (!is_string(_name)) show_error("__DbBufferWriteJSON:\nKeys must be strings\n ", true);
                     
                     buffer_write(_buffer, buffer_text, _indent);
                     buffer_write(_buffer, buffer_u8,   0x22); // Double quote
                     buffer_write(_buffer, buffer_text, string(_name));
                     buffer_write(_buffer, buffer_u32,  0x203A2022); // <" : >
                     
-                    __dbToJSONBufferValue(_buffer, _struct[$ _name], _pretty, _alphabetise, _accurateFloats, _indent);
+                    __DbToJSONBufferValue(_buffer, _struct[$ _name], _pretty, _alphabetise, _accurateFloats, _indent);
                     
                     buffer_write(_buffer, buffer_u16, 0x0A2C); //Comma + newline
                     
@@ -133,13 +133,13 @@ function __dbToJSONBufferValue(_buffer, _value, _pretty, _alphabetise, _accurate
                 repeat(_count)
                 {
                     var _name = _names[_i];
-                    if (!is_string(_name)) show_error("__dbBufferWriteJSON:\nKeys must be strings\n ", true);
+                    if (!is_string(_name)) show_error("__DbBufferWriteJSON:\nKeys must be strings\n ", true);
                     
                     buffer_write(_buffer, buffer_u8,   0x22); // Double quote
                     buffer_write(_buffer, buffer_text, string(_name));
                     buffer_write(_buffer, buffer_u16,  0x3A22); // Double quote then colon
                     
-                    __dbToJSONBufferValue(_buffer, _struct[$ _name], _pretty, _alphabetise, _accurateFloats, _indent);
+                    __DbToJSONBufferValue(_buffer, _struct[$ _name], _pretty, _alphabetise, _accurateFloats, _indent);
                     
                     buffer_write(_buffer, buffer_u8, 0x2C); //Comma
                     
