@@ -5,7 +5,7 @@
   "resources": [
     {"id":{"name":"dbExists","path":"scripts/dbExists/dbExists.yy",},"order":3,},
     {"id":{"name":"dbRawDataGet","path":"scripts/dbRawDataGet/dbRawDataGet.yy",},"order":1,},
-    {"id":{"name":"obj_test","path":"objects/obj_test/obj_test.yy",},"order":3,},
+    {"id":{"name":"oTest","path":"objects/oTest/oTest.yy",},"order":3,},
     {"id":{"name":"dbSave","path":"scripts/dbSave/dbSave.yy",},"order":0,},
     {"id":{"name":"dbTimestampSet","path":"scripts/dbTimestampSet/dbTimestampSet.yy",},"order":6,},
     {"id":{"name":"dbMetadataSet","path":"scripts/dbMetadataSet/dbMetadataSet.yy",},"order":2,},
@@ -22,7 +22,7 @@
     {"id":{"name":"dbChangedSet","path":"scripts/dbChangedSet/dbChangedSet.yy",},"order":4,},
     {"id":{"name":"dbBufferWrite","path":"scripts/dbBufferWrite/dbBufferWrite.yy",},"order":2,},
     {"id":{"name":"dbChangedGet","path":"scripts/dbChangedGet/dbChangedGet.yy",},"order":5,},
-    {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},"order":4,},
+    {"id":{"name":"rMain","path":"rooms/rMain/rMain.yy",},"order":4,},
     {"id":{"name":"dbBufferRead","path":"scripts/dbBufferRead/dbBufferRead.yy",},"order":3,},
     {"id":{"name":"dbCreate","path":"scripts/dbCreate/dbCreate.yy",},"order":1,},
     {"id":{"name":"dbMostRecent","path":"scripts/dbMostRecent/dbMostRecent.yy",},"order":5,},
@@ -57,7 +57,7 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
+    {"roomId":{"name":"rMain","path":"rooms/rMain/rMain.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"db","folderPath":"folders/db.yy","order":2,},
