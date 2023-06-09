@@ -6,6 +6,7 @@
     {"id":{"name":"DbExists","path":"scripts/DbExists/DbExists.yy",},"order":3,},
     {"id":{"name":"DbRawDataGet","path":"scripts/DbRawDataGet/DbRawDataGet.yy",},"order":1,},
     {"id":{"name":"oTest","path":"objects/oTest/oTest.yy",},"order":3,},
+    {"id":{"name":"__DbJSONVisualization","path":"scripts/__DbJSONVisualization/__DbJSONVisualization.yy",},"order":8,},
     {"id":{"name":"DbSave","path":"scripts/DbSave/DbSave.yy",},"order":0,},
     {"id":{"name":"DbTimestampSet","path":"scripts/DbTimestampSet/DbTimestampSet.yy",},"order":6,},
     {"id":{"name":"DbMetadataSet","path":"scripts/DbMetadataSet/DbMetadataSet.yy",},"order":2,},
@@ -19,6 +20,7 @@
     {"id":{"name":"DbTimestampGet","path":"scripts/DbTimestampGet/DbTimestampGet.yy",},"order":7,},
     {"id":{"name":"DbSortByTimestamp","path":"scripts/DbSortByTimestamp/DbSortByTimestamp.yy",},"order":6,},
     {"id":{"name":"__DbClass","path":"scripts/__DbClass/__DbClass.yy",},"order":1,},
+    {"id":{"name":"DbDebugString","path":"scripts/DbDebugString/DbDebugString.yy",},"order":7,},
     {"id":{"name":"DbChangedSet","path":"scripts/DbChangedSet/DbChangedSet.yy",},"order":4,},
     {"id":{"name":"DbBufferWrite","path":"scripts/DbBufferWrite/DbBufferWrite.yy",},"order":2,},
     {"id":{"name":"DbChangedGet","path":"scripts/DbChangedGet/DbChangedGet.yy",},"order":5,},
@@ -62,9 +64,9 @@
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"db","folderPath":"folders/db.yy","order":2,},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"(System)","folderPath":"folders/db/(System).yy","order":0,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Access","folderPath":"folders/db/Access.yy","order":7,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Export & Import","folderPath":"folders/db/Export & Import.yy","order":8,},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Properties","folderPath":"folders/db/Properties.yy","order":9,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Access","folderPath":"folders/db/Access.yy","order":8,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Export & Import","folderPath":"folders/db/Export & Import.yy","order":9,},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Properties","folderPath":"folders/db/Properties.yy","order":10,},
   ],
   "AudioGroups": [
     {"resourceType":"GMAudioGroup","resourceVersion":"1.3","name":"audiogroup_default","targets":-1,},
