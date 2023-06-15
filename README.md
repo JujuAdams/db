@@ -1,3 +1,4 @@
+<p align="center"><img src="https://raw.githubusercontent.com/JujuAdams/db/master/LOGO.png" style="display:block; margin:auto; width:300px"></p>
 <h1 align="center">db 1.0.0</h1>
 
 <p align="center">Prototype savedata database system for GameMaker LTS 2022 by <a href="https://www.jujuadams.com/" target="_blank">Juju Adams</a></p>
