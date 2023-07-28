@@ -1,3 +1,4 @@
+// Feather disable all
 function db_load(_filename)
 {
     if (!file_exists(_filename)) __db_error("Could not find \"", _filename, "\"");

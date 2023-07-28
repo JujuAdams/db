@@ -1,3 +1,4 @@
+// Feather disable all
 function db_duplicate(_database)
 {
     var _new = new __db_class();

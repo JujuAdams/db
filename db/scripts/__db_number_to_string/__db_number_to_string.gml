@@ -1,3 +1,4 @@
+// Feather disable all
 function __db_number_to_string(_value, _accurateFloats)
 {
     if (_accurateFloats && is_real(_value) && (floor(_value) != _value))

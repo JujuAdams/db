@@ -1,3 +1,4 @@
+// Feather disable all
 /// @param database
 
 function db_has_data(_database)

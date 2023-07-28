@@ -1,3 +1,4 @@
+// Feather disable all
 /// @param database
 /// @param filename
 /// @param [pretty=false]

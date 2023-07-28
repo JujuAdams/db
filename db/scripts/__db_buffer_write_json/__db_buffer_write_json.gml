@@ -1,3 +1,4 @@
+// Feather disable all
 function __db_buffer_write_json(_buffer, _value, _pretty = false, _alphabetise = false, _accurateFloats = false)
 {
     return __db_to_json_buffer_value(_buffer, _value, _pretty, _alphabetise, _accurateFloats, "");

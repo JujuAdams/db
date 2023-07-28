@@ -1,3 +1,4 @@
+// Feather disable all
 /// @param buffer
 
 function db_buffer_read(_buffer)

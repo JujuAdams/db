@@ -1,3 +1,4 @@
+// Feather disable all
 /// @param buffer
 /// @param database
 /// @param [pretty=false]

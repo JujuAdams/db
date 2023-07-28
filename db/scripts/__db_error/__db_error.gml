@@ -1,3 +1,4 @@
+// Feather disable all
 function __db_error() 
 {
 	var _string = "DB:\n";

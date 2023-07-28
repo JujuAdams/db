@@ -1,3 +1,4 @@
+// Feather disable all
 function __db_deep_copy(_value)
 {
     return __db_deep_copy_inner(_value, self, self);

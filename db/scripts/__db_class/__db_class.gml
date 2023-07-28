@@ -1,3 +1,4 @@
+// Feather disable all
 function __db_class() constructor
 {
     __metadata  = undefined;

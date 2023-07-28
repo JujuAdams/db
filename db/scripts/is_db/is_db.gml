@@ -1,3 +1,4 @@
+// Feather disable all
 /// @param value
 
 function is_db(_value)
