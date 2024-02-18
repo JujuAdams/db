@@ -3,8 +3,6 @@
 
 <p align="center">Prototype savedata database system for GameMaker LTS 2022</p>
 
-<p align="center">Chat about db on the <a href="https://discord.gg/KFwCSENemy">Discord server</a></p>
-
 &nbsp;
 
 `db_create()`
