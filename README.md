@@ -5,6 +5,14 @@
 
 &nbsp;
 
+&nbsp;
+
+- ### Got questions? [Make a new issue!](https://github.com/JujuAdams/db/issues/new)
+- ### There is also a [Discord server](https://discord.gg/hwgWpnsNw2) (but GitHub issues are preferred)
+- ### [Download the .yymps](https://github.com/JujuAdams/db/releases/)
+
+&nbsp;
+
 `db_create()`
 
 `db_duplicate(database)`
