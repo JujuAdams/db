@@ -1,4 +1,7 @@
 // Feather disable all
+
+/// Sets the "changed" state of a database. This is autonatically set when using `db_write()` but you can adjust it manually with this function if you choose.
+/// 
 /// @param database
 /// @param state
 
