@@ -1,4 +1,10 @@
 // Feather disable all
+
+/// Synchronously saves a database. You can load it later using `db_load()`.
+/// 
+/// N.B. This function should not be used on console (Switch, PS5 etc.) as it saves a file synchronously.
+///      Instead, use `db_buffer_write()` and save the buffer asynchronously using native GameMaker functions.
+/// 
 /// @param database
 /// @param filename
 /// @param [pretty=false]
