@@ -1,4 +1,7 @@
 // Feather disable all
+
+/// Reads a value from a database. If the value cannot be found, the default value will be returned.
+/// 
 /// @param database
 /// @param default
 /// @param key
