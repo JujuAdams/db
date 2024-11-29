@@ -1,4 +1,7 @@
 // Feather disable all
+
+/// Returns if a database has been changed since the last time this function was called.
+/// 
 /// @param database
 /// @param [resetState=true]
 
