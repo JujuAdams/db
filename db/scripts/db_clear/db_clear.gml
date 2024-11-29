@@ -1,4 +1,7 @@
 // Feather disable all
+
+/// Removes all data from a database.
+/// 
 /// @param database
 
 function db_clear(_database)
