@@ -1,4 +1,7 @@
 // Feather disable all
+
+/// Writes a database to a buffer. This buffer can be read back with `db_buffer_read()`.
+/// 
 /// @param buffer
 /// @param database
 /// @param [pretty=false]
