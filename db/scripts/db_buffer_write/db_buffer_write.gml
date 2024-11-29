@@ -2,6 +2,8 @@
 
 /// Writes a database to a buffer. This buffer can be read back with `db_buffer_read()`.
 /// 
+/// N.B. This function does *not* set the timestamp for the database and you should call `db_set_timestamp()` before saving.
+/// 
 /// @param buffer
 /// @param database
 /// @param [pretty=false]
