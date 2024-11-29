@@ -2,6 +2,8 @@
 
 /// Reads a value from a database. If the value cannot be found, the default value will be returned.
 /// 
+/// Please see `db_write()` for information on how the `key` arguments work.
+/// 
 /// @param database
 /// @param default
 /// @param key
