@@ -1,4 +1,7 @@
 // Feather disable all
+
+/// Sorts an array of databases based on their timestamps.
+/// 
 /// @param arrayOfDatabases
 /// @param mostRecent
 
