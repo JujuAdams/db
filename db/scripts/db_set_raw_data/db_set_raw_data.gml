@@ -1,4 +1,7 @@
 // Feather disable all
+
+/// Sets the raw data for a database. This can be used to overwrite the contents of a database.
+/// 
 /// @param database
 /// @param data
 /// @param [setChanged=false]
