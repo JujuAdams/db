@@ -1,4 +1,7 @@
 // Feather disable all
+
+/// Creates a deep copy of a database and returns it.
+
 function db_duplicate(_database)
 {
     var _new = new __db_class();
