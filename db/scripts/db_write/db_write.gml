@@ -2,6 +2,12 @@
 
 /// Writes a value into a database.
 /// 
+/// Interally, db databases are stored as nested structs and arrays ("JSON"). Keys are used to navigate these
+/// structs and arrays. Keys can be one of two datatypes: strings or integers. If a key is a string, db will
+/// attempt to access a struct using the key as the member variable name. If a key is an integer, db will
+/// attempt to access an array using the key as the array index. When writing values into a database, db will
+/// create structs and arrays as necessary to support the keys that have been used.
+/// 
 /// @param database
 /// @param value
 /// @param key
