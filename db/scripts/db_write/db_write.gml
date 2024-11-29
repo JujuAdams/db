@@ -1,12 +1,41 @@
 // Feather disable all
 
-/// Writes a value into a database.
+/// Writes a value into a database. Values can be atomic types (string, number, `undefined`, booleans) or a
+/// struct or array.
 /// 
 /// Interally, db databases are stored as nested structs and arrays ("JSON"). Keys are used to navigate these
 /// structs and arrays. Keys can be one of two datatypes: strings or integers. If a key is a string, db will
 /// attempt to access a struct using the key as the member variable name. If a key is an integer, db will
 /// attempt to access an array using the key as the array index. When writing values into a database, db will
 /// create structs and arrays as necessary to support the keys that have been used.
+/// 
+/// Example:
+///   db_write(database, 3.141, "constants", "pi");
+/// will generate the following JSON:
+///   {
+///       constants: {
+///           pi: 3.141
+///       }
+///   }
+/// 
+/// Example:
+///   db_write(database, { item: "bullet", quantity: 2}, "playerData", 0, "inventory", 3);
+/// will generate the following JSON:
+///   {
+///       playerData: [
+///           {
+///               inventory: [
+///                   undefined,
+///                   undefined,
+///                   undefined,
+///                   {
+///                       item: "bullet",
+///                       quantity: 2,
+///                   }
+///               ]
+///            }
+///       ]
+///   }
 /// 
 /// @param database
 /// @param value
