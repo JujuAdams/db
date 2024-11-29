@@ -1,4 +1,7 @@
 // Feather disable all
+
+/// Returns if a value exists in a database.
+/// 
 /// @param database
 /// @param key
 /// @param ...
