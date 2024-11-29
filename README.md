@@ -13,6 +13,8 @@
 
 &nbsp;
 
+Please see comments in code for documentation. This library contains the following functions:
+
 `db_create()`
 
 `db_duplicate(database)`
