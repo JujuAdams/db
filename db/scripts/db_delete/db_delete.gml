@@ -1,4 +1,7 @@
 // Feather disable all
+
+/// Deletes a value from a database.
+/// 
 /// @param database
 /// @param key
 /// @param ...
