@@ -2,6 +2,8 @@
 
 /// Returns if a value exists in a database.
 /// 
+/// Please see `db_write()` for information on how the `key` arguments work.
+/// 
 /// @param database
 /// @param key
 /// @param ...
