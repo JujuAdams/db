@@ -1,4 +1,7 @@
 // Feather disable all
+
+/// Sets the metadata for a database.
+/// 
 /// @param database
 /// @param metadata
 
