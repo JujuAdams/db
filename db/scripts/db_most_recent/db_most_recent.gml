@@ -1,4 +1,7 @@
 // Feather disable all
+
+/// Returns the database, from an array of databases, that has the most recent timestamp.
+/// 
 /// @param arrayOfDatabases
 /// @param [returnIndex=false]
 
