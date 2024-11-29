@@ -1,4 +1,7 @@
 // Feather disable all
+
+/// Writes a value into a database.
+/// 
 /// @param database
 /// @param value
 /// @param key
