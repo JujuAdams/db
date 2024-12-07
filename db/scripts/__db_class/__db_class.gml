@@ -12,4 +12,4 @@ function __db_class() constructor
     }
 }
 
-show_debug_message("Welcome to db by @jujuadams! This is version 1.0.0, 2023-04-17");
+show_debug_message("Welcome to db by Juju Adams! This is version 1.0.0, 2023-04-17");
