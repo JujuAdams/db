@@ -1,11 +1,13 @@
 {
-  "resourceType": "GMScript",
-  "resourceVersion": "1.0",
-  "name": "db_buffer_read",
-  "isDnD": false,
-  "isCompatibility": false,
-  "parent": {
-    "name": "Export & Import",
-    "path": "folders/db/Export & Import.yy",
+  "$GMScript":"v1",
+  "%Name":"db_buffer_read",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"db_buffer_read",
+  "parent":{
+    "name":"Export & Import",
+    "path":"folders/db/Export & Import.yy",
   },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
 }
