@@ -12,4 +12,8 @@ function __db_class() constructor
     }
 }
 
-show_debug_message("Welcome to db by Juju Adams! This is version 1.0.0, 2023-04-17");
+#macro DB_VERSION       "2.0.0"
+#macro DB_DATE          "2025-01-28"
+#macro DB_SAVE_VERSION  2
+
+show_debug_message($"db: Welcome to db by Juju Adams! This is version {DB_VERSION}, {DB_DATE}");

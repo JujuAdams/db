@@ -7,6 +7,7 @@ function __db_deserialize(_string)
     switch(_json.version)
     {
         case 1:
+        case 2:
             _database = db_create();
             db_set_metadata(_database, _json.metadata);
             db_set_raw_data(_database, _json.data, false);

@@ -167,37 +167,18 @@ function __db_to_json_buffer_value(_buffer, _value, _pretty, _alphabetise, _accu
         buffer_write(_buffer, buffer_text, string(_value));
         buffer_write(_buffer, buffer_u8,   0x22);
     }
+    else if (is_handle(_value))
+    {
+        buffer_write(_buffer, buffer_u8,   0x22);
+        buffer_write(_buffer, buffer_text, string(_value));
+        buffer_write(_buffer, buffer_u8,   0x22);
+    }
     else
     {
-        // YoYoGames in their finite wisdom added a new datatype in GMS2022.5 that doesn't stringify nicely
-        //     string(instance.id) = "ref 100001"
-        // This means we end up writing a string with a space in it to JSON. This is leads to invalid output
-        // We can check <typeof(id) == "ref"> but string comparison is slow and gross
-        // 
-        // Instance IDs have the following detectable characteristics:
-        // typeof(value)       = "ref"
-        // is_array(value)     = false  *
-        // is_bool(value)      = false  *
-        // is_infinity(value)  = false
-        // is_int32(value)     = false  *
-        // is_int64(value)     = false  *
-        // is_method(value)    = false  *
-        // is_nan(value)       = false
-        // is_numeric(value)   = true
-        // is_ptr(value)       = false  *
-        // is_real(value)      = false  *
-        // is_string(value)    = false  *
-        // is_struct(value)    = false  *
-        // is_undefined(value) = false  *
-        // is_vec3(value)      = false  *  (covered by is_array())
-        // is_vec4(value)      = false  *  (covered by is_array())
-        // 
-        // Up above we've already tested the datatypes marked with asterisks
-        // We can fish out instance references by checking <is_numeric() == true> and then excluding int32 and int64 datatypes
-        
+        //Catch future unsupported types ... hopefully
         if (is_numeric(_value))
         {
-            buffer_write(_buffer, buffer_text, string(real(_value))); //Save the numeric component of the instance ID
+            buffer_write(_buffer, buffer_text, string(real(_value)));
         }
         else
         {

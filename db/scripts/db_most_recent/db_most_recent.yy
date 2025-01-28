@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"db_most_recent",
   "parent":{
-    "name":"db",
-    "path":"folders/db.yy",
+    "name":"Properties",
+    "path":"folders/db/Properties.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

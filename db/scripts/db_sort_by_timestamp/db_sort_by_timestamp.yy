@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"db_sort_by_timestamp",
   "parent":{
-    "name":"db",
-    "path":"folders/db.yy",
+    "name":"Properties",
+    "path":"folders/db/Properties.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
