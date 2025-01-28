@@ -15,6 +15,13 @@
 
 function db_save(_database, _filename, _pretty = false, _accurate_floats = false, _legacy_mode = false)
 {
+    var _payload = {
+        data:      _database.__data,
+        metadata:  _database.__metadata,
+        timestamp: _database.__timestamp,
+        version:   DB_SAVE_VERSION,
+    };
+    
     if (_legacy_mode)
     {
         var _buffer = buffer_create(1024, buffer_grow, 1);
@@ -27,7 +34,7 @@ function db_save(_database, _filename, _pretty = false, _accurate_floats = false
             __db_error("Accurate float mode is only supported in legacy mode at this time");
         }
         
-        var _string = json_stringify(_database, _pretty);
+        var _string = json_stringify(_payload, _pretty);
         var _buffer = buffer_create(string_byte_length(_string), buffer_fixed, 1);
         buffer_write(_buffer, buffer_text, _string);
     }

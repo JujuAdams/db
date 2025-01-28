@@ -20,7 +20,7 @@ function db_load(_filename)
     }
     catch(_error)
     {
-        
+        show_debug_message("db: Warning! Failed to parse JSON");
     }
     
     if ((_buffer != undefined) && (_buffer > 0)) buffer_delete(_buffer);
