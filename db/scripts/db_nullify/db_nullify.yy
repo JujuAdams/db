@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"db_nullify",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"db_nullify",
+  "parent":{
+    "name":"Access",
+    "path":"folders/db/Access.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -46,6 +46,7 @@
     {"id":{"name":"db_has_data","path":"scripts/db_has_data/db_has_data.yy",},},
     {"id":{"name":"db_load","path":"scripts/db_load/db_load.yy",},},
     {"id":{"name":"db_most_recent","path":"scripts/db_most_recent/db_most_recent.yy",},},
+    {"id":{"name":"db_nullify","path":"scripts/db_nullify/db_nullify.yy",},},
     {"id":{"name":"db_patch","path":"scripts/db_patch/db_patch.yy",},},
     {"id":{"name":"db_read","path":"scripts/db_read/db_read.yy",},},
     {"id":{"name":"db_save","path":"scripts/db_save/db_save.yy",},},
