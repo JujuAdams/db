@@ -42,12 +42,18 @@
 /// 
 /// @param database
 /// @param value
-/// @param key
+/// @param [key]
 /// @param ...
 
 function db_write(_database, _set_value)
 {
-    if (argument_count < 3) __db_error("Incorrect number of arguments (got ", argument_count, ", was expecting at least 3)");
+    if (argument_count < 2) __db_error("Incorrect number of arguments (got ", argument_count, ", was expecting at least 3)");
+    
+    if (argument_count == 2)
+    {
+        db_set_raw_data(_database, _set_value, true);
+        return;
+    }
     
     with(_database)
     {

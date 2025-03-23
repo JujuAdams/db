@@ -5,7 +5,7 @@
 /// Please see `db_write()` for information on how the `key` arguments work.
 /// 
 /// @param database
-/// @param key
+/// @param [key]
 /// @param ...
 
 function db_delete(_database)

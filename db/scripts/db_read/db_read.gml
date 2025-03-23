@@ -6,12 +6,12 @@
 /// 
 /// @param database
 /// @param default
-/// @param key
+/// @param [key]
 /// @param ...
 
 function db_read(_database, _default)
 {
-    if (argument_count < 3) __db_error("Incorrect number of arguments (got ", argument_count, ", was expecting at least 3)");
+    if (argument_count < 2) __db_error("Incorrect number of arguments (got ", argument_count, ", was expecting at least 2)");
     
     with(_database)
     {
