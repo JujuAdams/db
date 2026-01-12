@@ -97,7 +97,7 @@ function SetMusicVolume(_value)
 }
 ```
 
-Again, verbose and clumsy. This is, again, one simple line of code when using db:
+Again, verbose and clumsy. This is one line of code when using db:
 
 ```gml
 function SetMusicVolume(_value)
