@@ -21,7 +21,7 @@ It's worth pointing out here that this discussion of db is going to presume fami
 
 db is centred around the concept of "lazy read" and "lazy write". This is pretty much what it sounds like: instead of doing lots of error handling, db will instead do its best to always read and write values with crashing. You can forget about strict access rules and instead write code that communicates what you want to happen rather than the precise steps needed to get there. This means there's a lot of implicit behaviour but it's implicit behaviour that is predictable and helpful. db is a small step towards [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) which I think is neat.
 
-To make my point, consider the following JSON structure:
+The following example shows nested struct access and how db can help make code both safer and friendlier to write. Please note that db works just as well with arrays and structs combined even if the example doesn't contain any arrays. Anyway, consider the following JSON structure:
 
 ```
 global.data = {
@@ -105,6 +105,8 @@ function SetMusicVolume(_value)
     return db_write(global.database, _value, "settings", "audio", "music");
 }
 ```
+
+db has further functions that operate on JSON data along the "lazy access" principle. Additionally, db has features catering to the specific needs of savedata including metadata and timestamps.
 
 &nbsp;
 
