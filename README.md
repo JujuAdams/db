@@ -13,7 +13,7 @@
 
 &nbsp;
 
-## What Is `db`?
+## What is `db`?
 
 At its simplest, db is a set of helper functions that wrap around GameMaker's struct and array features to make them easier to use for savedata. JSON is a fabulous invention that [I famously have a passion for](https://www.youtube.com/watch?v=Uj7nr6vSRvs). I have found in my commercial work that the same problems need to be solved again and again and JSON is often the right tool for the job. What tends to get in the way is making JSON convenient to use and db goes some way to solve this problem.
 
@@ -110,7 +110,7 @@ db has further functions that operate on JSON data along the "lazy access" princ
 
 &nbsp;
 
-## What Does `db` Not Do?
+## What does `db` not do?
 
 db isn't going to fix bugs for you or solve architectural questions. db is also not going to work well if you're prone to lots of typos. One of the sacrifices we make as developers is the trade-off between safety and flexibility. Generally speaking, the more flexible the system the easier it is to make mistakes. This is certainly the case for db.
 
@@ -118,7 +118,7 @@ db also doesn't natively handle the actual action of saving and loading to a dev
 
 &nbsp;
 
-## What Is A `db` Database?
+## What is a `db` database?
 
 Observant readers will have noticed that the db usage examples above swapped out `global.savedata` for a mysterious `global.database`. db has a special concept of a "database". Databases must always function as the root element for a db-compatible JSON tree. Whether normally you might have a struct or an array as the root node, db requires its own data structure. This is a practical requirement owing to db's additional metadata features, change tracking, and further adds extra safety.
 
@@ -130,13 +130,13 @@ This change state, along with metadata and a timestamp, is stored inside the roo
 
 &nbsp;
 
-## Saving And Loading Databases
+## Saving and loading databases
 
 db contains two debug functions that can be used to easily save databases to disk - `db_debug_save()` and `db_debug_load()`. As the names suggest, these are intended only for debug use. You should not use these functions in production.
 
 You should save and load buffers asynchronously for proper game builds. You can use GameMaker's [native async buffer functions](https://manual.gamemaker.io/lts/en/GameMaker_Language/GML_Reference/Buffers/buffer_save_async.htm) and db is compatible with existing save/load systems that use GameMaker's async buffer functions. Alternatively, you can use another library that I've made called [Sparkle Store](https://github.com/jujuadams/Sparkle-Store) that wraps around the native GameMaker functions and gives you a more friendly API to use.
 
-### Native Functions
+### Native functions
 
 GameMaker's native asynchronous buffer functions require that you use the "Async - Save/Load" event to handle results. The example below is the bare minimum and on console you'll need to modify the code below to meet platform certification requirements.
 
