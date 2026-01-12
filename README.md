@@ -118,7 +118,9 @@ db also doesn't natively handle the actual action of saving and loading to a dev
 
 &nbsp;
 
-## Saving And Loading Databases
+## What Is A `db` Database?
+
+Observant readers will have noticed that the db usage examples above swapped out `global.savedata` for a mysterious `global.database`. db has a special concept of a "database". Databases must always function as the root element for a db-compatible JSON tree. Whether normally you might have a struct or an array as the root node, db requires its own data structure. This is a practical requirement owing to db's additional metadata features, change tracking, and further adds extra safety.
 
 db contains two debug functions that can be used to easily save databases to disk - `db_debug_save()` and `db_debug_load()`. As the names suggest, these are intended only for debug use. You should not use these functions in production.
 
