@@ -13,50 +13,132 @@
 
 &nbsp;
 
-Please see comments in code for documentation. This library contains the following functions:
+## Saving And Loading Databases
 
-`db_create()`
+db contains two debug functions that can be used to easily save databases to disk - `db_debug_save()` and `db_debug_load()`. As the names suggest, these are intended for anything other than debug use. You should not use these function in production.
 
-`db_duplicate(database)`
+Instead, you should save and load buffers asynchronously. You can use GameMaker's [native async buffer functions](https://manual.gamemaker.io/lts/en/GameMaker_Language/GML_Reference/Buffers/buffer_save_async.htm) and db is compatible with existing save/load systems that use GameMaker's functions. Alternatively, you can use another library that I've made called [Sparkle Store](https://github.com/jujuadams/Sparkle-Store) that wraps around the native GameMaker functions and gives you a more friendly API to use.
 
-`is_db(value)`
+### Native Functions
 
-`db_has_data(database)`
+GameMaker's native asynchronous buffer functions require that you use the "Async - Save/Load" event to handle results. The example below is the bare minimum and on console you'll need to modify the code below to meet platform certification requirements.
 
-`db_write(database, value, key, ...)`
+#### Saving:
 
-`db_read(database, default, key, ...)`
+```gml
+/// Save Function
 
-`db_delete(database, key, ...)`
+var _buffer = db_buffer_create(database);
+buffer_async_group_begin("default");
+buffer_save_async(_buffer, "filename.json", 0, buffer_get_size(_buffer));
+saveID = buffer_async_group_end();
+buffer_delete(_buffer); //We can delete the buffer straight away
 
-`db_exists(database, key, ...)`
 
-`db_clear(database)`
 
-`db_save(database, database, [pretty=false], [accurateFloats=false])`
+/// Async - Save/Load Event
 
-`db_load(filename)`
+var _id     = async_load[? "id"    ];
+var _status = async_load[? "status"];
 
-`db_buffer_write(buffer, database, [pretty=false], [accurateFloats=false])`
+if (saveID == _id)
+{
+    if (_status)
+    {
+    	//File saved successfully
+    }
+    else
+    {
+    	//File failed to save
+    }
+}
+```
 
-`db_buffer_read(buffer)`
+#### Loading:
 
-`db_set_raw_data(database, data)`
+```gml
+/// Load Function
 
-`db_get_raw_data(database)`
+loadBuffer = buffer_create(1, buffer_grow, 1);
+buffer_async_group_begin("default");
+buffer_load_async(loadBuffer, "filename.json", 0, -1);
+loadID = buffer_async_group_end();
 
-`db_set_metadata(database, metadata)`
 
-`db_get_metadata(database)`
 
-`db_set_changed(database, state)`
+/// Async - Save/Load Event
 
-`db_get_changed(database, [resetState=true])`
+var _id     = async_load[? "id"    ];
+var _status = async_load[? "status"];
 
-`db_set_timestamp(database, timestamp)`
+if (loadID == _id)
+{
+	//Decode the saved data
+    var _loadedDatabase = _status? db_buffer_read(loadBuffer) : undefined;
+    
+    //Clean up
+    buffer_delete(loadBuffer);
+	loadID = undefined;
+    loadBuffer = undefined;
+    
+    if (_loadedDatabase != undefined)
+    {
+    	database = _loadedDatabase;
+    	//File loaded successfully
+    }
+    else
+    {
+    	//File failed to load
+    }
+}
+```
 
-`db_get_timestamp(database)`
+### Sparkle Store
 
-`db_most_recent(arrayOfDatabases, [returnIndex=false])`
+Sparkle Store uses callback functions instead. Please see [Sparkle Store documentation](https://github.com/jujuadams/Sparkle-Store) for more information.
 
-`db_sort_by_timestamp(arrayOfDatabases, mostRecent)`
+#### Saving:
+
+```gml
+/// Save Function
+
+var _buffer = db_buffer_create(database);
+SparkleSave("filename.json", _buffer, function(_status, _buffer)
+{
+    //Clean up
+    buffer_delete(_buffer);
+    
+    if (_status)
+    {
+    	//File saved successfully
+    }
+    else
+    {
+    	//File failed to save
+    }
+});
+```
+
+#### Loading:
+
+```gml
+/// Load Function
+
+SparkleLoad("filename.json", _buffer, function(_status, _buffer)
+{
+    var _loadedDatabase = _status? db_buffer_read(_buffer) : undefined;
+
+    //Clean up
+    buffer_delete(_buffer);
+
+    if (_loadedDatabase != undefined)
+    {
+    	database = _loadedDatabase;
+    	//File loaded successfully
+    }
+    else
+    {
+    	//File failed to load
+    }
+});
+```
