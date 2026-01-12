@@ -15,9 +15,9 @@
 
 ## Saving And Loading Databases
 
-db contains two debug functions that can be used to easily save databases to disk - `db_debug_save()` and `db_debug_load()`. As the names suggest, these are intended for anything other than debug use. You should not use these function in production.
+db contains two debug functions that can be used to easily save databases to disk - `db_debug_save()` and `db_debug_load()`. As the names suggest, these are intended only for debug use. You should not use these functions in production.
 
-Instead, you should save and load buffers asynchronously. You can use GameMaker's [native async buffer functions](https://manual.gamemaker.io/lts/en/GameMaker_Language/GML_Reference/Buffers/buffer_save_async.htm) and db is compatible with existing save/load systems that use GameMaker's functions. Alternatively, you can use another library that I've made called [Sparkle Store](https://github.com/jujuadams/Sparkle-Store) that wraps around the native GameMaker functions and gives you a more friendly API to use.
+Instead, you should save and load buffers asynchronously for proper game builds. You can use GameMaker's [native async buffer functions](https://manual.gamemaker.io/lts/en/GameMaker_Language/GML_Reference/Buffers/buffer_save_async.htm) and db is compatible with existing save/load systems that use GameMaker's async buffer functions. Alternatively, you can use another library that I've made called [Sparkle Store](https://github.com/jujuadams/Sparkle-Store) that wraps around the native GameMaker functions and gives you a more friendly API to use.
 
 ### Native Functions
 
@@ -95,7 +95,7 @@ if (loadID == _id)
 
 ### Sparkle Store
 
-Sparkle Store uses callback functions instead. Please see [Sparkle Store documentation](https://github.com/jujuadams/Sparkle-Store) for more information.
+Sparkle Store uses callback functions. Please see [documentation](https://github.com/jujuadams/Sparkle-Store) for more information. Sparkle Store also has a handful config macros and functions that you can use to set up properly for console.
 
 #### Saving:
 
