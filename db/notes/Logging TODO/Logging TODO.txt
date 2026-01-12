@@ -1,0 +1,13 @@
+db_global_set_logging(true)
+db_global_get_logging()
+db_global_clear_log()
+db_global_get_log()
+
+{
+    "frame 123": [
+        { "database": database, "address": [], "prevValue": 0, "value": 1, "callstack", debug_get_callstack() },
+    ],
+    "frame 124": [
+    
+    ],
+}
