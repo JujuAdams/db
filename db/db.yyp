@@ -34,6 +34,7 @@
     {"id":{"name":"__db_deserialize","path":"scripts/__db_deserialize/__db_deserialize.yy",},},
     {"id":{"name":"__db_error","path":"scripts/__db_error/__db_error.yy",},},
     {"id":{"name":"__db_number_to_string","path":"scripts/__db_number_to_string/__db_number_to_string.yy",},},
+    {"id":{"name":"db_buffer_create","path":"scripts/db_buffer_create/db_buffer_create.yy",},},
     {"id":{"name":"db_buffer_read","path":"scripts/db_buffer_read/db_buffer_read.yy",},},
     {"id":{"name":"db_buffer_write","path":"scripts/db_buffer_write/db_buffer_write.yy",},},
     {"id":{"name":"db_clear","path":"scripts/db_clear/db_clear.yy",},},

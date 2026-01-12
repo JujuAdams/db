@@ -2,8 +2,9 @@
 
 /// Synchronously loads a database that has been saved by `db_save()`.
 /// 
-/// N.B. This function should not be used on console (Switch, PS5 etc.) as it loads a file synchronously.
-///      Instead, use `db_buffer_write()` and load the buffer asynchronously using native GameMaker functions.
+/// N.B. This function should not be used on console (Switch, PS5 etc.) as it loads a file
+///      synchronously. Instead, use `db_buffer_write()` and load the buffer asynchronously using
+///      native GameMaker functions.
 
 function db_load(_filename)
 {
