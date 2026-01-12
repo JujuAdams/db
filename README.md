@@ -1,7 +1,7 @@
 <p align="center"><img src="https://raw.githubusercontent.com/JujuAdams/db/master/LOGO.png" style="display:block; margin:auto; width:300px"></p>
-<h1 align="center">db 1.0.0</h1>
+<h1 align="center">db 2.0.0</h1>
 
-<p align="center">Prototype savedata database system for GameMaker LTS 2022</p>
+<p align="center">Savedata database system for GameMaker LTS 2022</p>
 
 &nbsp;
 
@@ -10,6 +10,109 @@
 - ### Got questions? [Make a new issue!](https://github.com/JujuAdams/db/issues/new)
 - ### There is also a [Discord server](https://discord.gg/hwgWpnsNw2) (but GitHub issues are preferred)
 - ### [Download the .yymps](https://github.com/JujuAdams/db/releases/)
+
+&nbsp;
+
+## What Is `db`?
+
+At its simplest, db is a set of helper functions that wrap around GameMaker's struct and array features to make them easier to use for savedata. JSON is a fabulous invention that [I famously have a passion for](https://www.youtube.com/watch?v=Uj7nr6vSRvs). I have found in my commercial work that the same problems need to be solved again and again and JSON is often the right tool for the job. What tends to get in the way is making JSON convenient to use and db goes some way to solve this problem.
+
+It's worth pointing out here that this discussion of db is going to presume familiarity with JSON, GameMaker's struct and array features, and general ideas of good practice in GameMaker development. I think db is easy to use but it's not a tool for the complete beginner.
+
+db is centred around the concept of "lazy read" and "lazy write". This is pretty much what it sounds like: instead of doing lots of error handling, db will instead do its best to always read and write values with crashing. You can forget about strict access rules and instead write code that communicates what you want to happen rather than the precise steps needed to get there. This means there's a lot of implicit behaviour but it's implicit behaviour that is predictable and helpful. db is a small step towards [declarative programming](https://en.wikipedia.org/wiki/Declarative_programming) which I think is neat.
+
+To make my point, consider the following JSON structure:
+
+```
+global.data = {
+    "settings": {
+        "audio": {
+            "music": 1,
+            "sfx": 1,
+        },
+    ]
+}
+```
+
+If we want to read the volume to play music at we'd read `global.data.settings.audio.music`. We're telling the program that we want to read exactly that value. If the program can't find that value then the program will "throw an exception" a.k.a. crash. Reading information from a bunch of nested structs like this is a brittle operation - if one part of the chain snaps then the whole chain no longer works. For settings data specifically this sort of problem could happen in multiple ways: you forgot to initialize empty savedata correctly when starting a new game, you added a new settings option and the player is migrating old savedata that is missing the new setting, you simply made a typo in the command, there has been data corruption, etc.  Nothing will frustrate your players more than broken savedata and rightly so.
+
+What we need is a more robust way of accessing data such that if some part of the data is missing then the game is able to recover or at least fall back on good default behaviour. If we were going to do this in native GML it would look like this:
+
+```gml
+function GetMusicVolume()
+{
+    var _value = global.savedata[$ "settings"];
+    if (is_struct(_value))
+    {
+        _value = _value[$ "audio"];
+        if (is_struct(_value))
+        {
+            _value = _value[$ "music"];
+        }
+    }
+    
+    if (not is_numeric(_value))
+    {
+        //Fall back on a helpful value if we fail
+        _value = 1;
+    }
+    
+    return _value;
+}
+```
+
+Not pretty code. All of the extra error checking makes this much harder to read than the elegant-but-fragile code we had before.
+
+Here how you do it in using db:
+
+```gml
+function GetMusicVolume()
+{
+    return db_read(global.database, 1, "settings", "audio", "music");
+}
+```
+
+A substantial improvement. The situation is similar for writing data too:
+
+```gml
+function SetMusicVolume(_value)
+{
+    var _struct = global.savedata;
+    
+    var _struct = _struct[$ "settings"];
+    if (not is_struct(_value))
+    {
+        _struct.settings = {};
+        _struct = _struct.settings;
+    }
+    
+    var _struct = _struct[$ "audio"];
+    if (not is_struct(_value))
+    {
+        _struct.audio = {};
+        _struct = _struct.audio;
+    }
+    
+    _struct.music = _value;
+}
+```
+
+Again, verbose and clumsy. This is one line of code when using db:
+
+```gml
+function SetMusicVolume(_value)
+{
+    return db_write(global.database, _value, "settings", "audio", "music");
+}
+```
+
+&nbsp;
+
+## What Does `db` Not Do?
+
+db isn't going to fix bugs for you or solve architectural questions. db is also not going to work well if you're prone to lots of typos. One of the sacrifices we make as developers is the trade-off between safety and flexibility. Generally speaking, the more flexible the system the easier it is to make mistakes. This is certainly the case for db.
+
+db also doesn't natively handle the actual action of saving and loading to a device's storage. db gives structure to your data and tools to get at that data but it stops short of being a comprehensive file access system. It'd be far too much complexity for one library to cover everything without being overwhelming. File access is a surprisingly tricky subject and [other libraries](https://github.com/jujuadams/Sparkle-Store) should be used for the file operations themselves. That having been said, there are two debug save/load functions for quick testing but these should not be used in production. Further on in this guide you'll find some advice on saving and loading files in a way that ensures you're not left high and dry when trying to port your game to console.
 
 &nbsp;
 
