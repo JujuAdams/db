@@ -1,12 +1,13 @@
 // Feather disable all
 
-/// Synchronously loads a database that has been saved by `db_save()`.
+/// Synchronously loads a database that has been saved by `db_debug_save()`.
 /// 
-/// N.B. This function should not be used on console (Switch, PS5 etc.) as it loads a file
-///      synchronously. Instead, use `db_buffer_write()` and load the buffer asynchronously using
-///      native GameMaker functions.
+/// N.B. This function is provided for debug use only and should not be used in production.
+///      Instead, load the buffer asynchronously and use `db_buffer_read()`.
+/// 
+/// N.B. This function will not work properly on console (Switch, PlayStation, Xbox).
 
-function db_load(_filename)
+function db_debug_load(_filename)
 {
     if (!file_exists(_filename)) __db_error("Could not find \"", _filename, "\"");
     

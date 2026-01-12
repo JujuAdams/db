@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"db_save",
+  "%Name":"db_debug_save",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"db_save",
+  "name":"db_debug_save",
   "parent":{
     "name":"Export & Import",
     "path":"folders/db/Export & Import.yy",

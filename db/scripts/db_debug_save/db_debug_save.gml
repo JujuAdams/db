@@ -1,13 +1,15 @@
 // Feather disable all
 
-/// Synchronously saves a database. You can load it later using `db_load()`.
+/// Synchronously saves a database. You can load it later using `db_debug_load()`.
+/// 
+/// N.B. This function is provided for debug use only and should not be used in production.
+///      Instead, please use `db_buffer_write()` or `db_buffer_create()` and save the buffer
+///      asynchronously.
 /// 
 /// N.B. This function does *not* set the timestamp for the database and you should call
 ///      `db_set_timestamp()` before saving.
 /// 
-/// N.B. This function should not be used on console (Switch, PS5 etc.) as it saves a file
-///      synchronously. Instead, use `db_buffer_write()` and save the buffer asynchronously using
-///      native GameMaker functions.
+/// N.B. This function will not work properly on console (Switch, PlayStation, Xbox).
 /// 
 /// @param database
 /// @param filename
@@ -15,7 +17,7 @@
 /// @param [accurateFloats=false]
 /// @param [legacyMode=false]
 
-function db_save(_database, _filename, _pretty = false, _accurate_floats = false, _legacy_mode = false)
+function db_debug_save(_database, _filename, _pretty = false, _accurate_floats = false, _legacy_mode = false)
 {
     var _payload = {
         data:      _database.__data,
