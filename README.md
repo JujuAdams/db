@@ -34,7 +34,7 @@ global.data = {
 }
 ```
 
-If we want to read the volume to play music at we'd read `global.data.settings.audio.music`. We're telling the program that we want to read exactly that value. If the program can't find that value then the program will "throw an exception" a.k.a. crash. Reading information from a bunch of nested structs like this is a brittle operation - if one part of the chain snaps then the whole chain no longer works. For settings data specifically this sort of problem could happen in multiple ways: you forgot to initialize empty savedata correctly when starting a new game, you added a new settings option and the player is migrating old savedata that is missing the new setting, you simply made a typo in the command, there has been data corruption, etc.  Nothing will frustrate your players more than broken savedata and rightly so.
+If we want to read the volume to play music at we'd read `global.data.settings.audio.music`. We're telling the program that we want to read exactly that value stored deep inside a JSON tree. If the program can't find that value then the program will "throw an exception" a.k.a. crash. Reading information from a bunch of nested structs like this is a brittle operation - if one part of the chain snaps then the whole chain fails. For settings data specifically this sort of problem could happen in multiple ways: you forgot to initialize empty savedata correctly when starting a new game, you added a new settings option and the player is migrating old savedata that is missing the new setting, you made a typo in the command, there has been data corruption, etc.  Nothing will frustrate your players more than broken savedata and rightly so.
 
 What we need is a more robust way of accessing data such that if some part of the data is missing then the game is able to recover or at least fall back on good default behaviour. If we were going to do this in native GML it would look like this:
 
@@ -61,9 +61,7 @@ function GetMusicVolume()
 }
 ```
 
-Not pretty code. All of the extra error checking makes this much harder to read than the elegant-but-fragile code we had before.
-
-Here how you do it in using db:
+Not pretty code. All of the extra error checking makes this much harder to read than the elegant-but-fragile code we had before. It does the job but it leaves much to be desired. Here's how you do it in using db:
 
 ```gml
 function GetMusicVolume()
@@ -72,7 +70,9 @@ function GetMusicVolume()
 }
 ```
 
-A substantial improvement. The situation is similar for writing data too:
+A substantial improvement. db can accomplish in a single line what takes native GML a dozen lines.
+
+The situation is similar for writing data too. Writing data in a "lazy" way means we need to step along the tree, checking at each stage if we need to create a new struct to fill in a gap:
 
 ```gml
 function SetMusicVolume(_value)
@@ -97,7 +97,7 @@ function SetMusicVolume(_value)
 }
 ```
 
-Again, verbose and clumsy. This is one line of code when using db:
+Again, verbose and clumsy. This is, again, one simple line of code when using db:
 
 ```gml
 function SetMusicVolume(_value)
