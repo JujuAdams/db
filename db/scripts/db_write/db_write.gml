@@ -53,8 +53,12 @@ function db_write(_database, _set_value)
     {
         if (argument_count == 2)
         {
-            db_set_changed(_database, __data);
-            __changed = true;
+            if (__data != _set_value)
+            {
+                __data = _set_value;
+                __changed = true;
+            }
+            
             return;
         }
         
