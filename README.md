@@ -15,7 +15,7 @@
 
 ## What is db?
 
-At its simplest, db is a set of helper functions that wrap around GameMaker's struct and array features to make them easier to use for savedata. JSON is a fabulous invention that [I famously have a passion for](https://www.youtube.com/watch?v=Uj7nr6vSRvs). I have found in my commercial work that the same problems need to be solved again and again and JSON is often the right tool for the job. What tends to get in the way is making JSON convenient to use and db goes some way to solve this problem.
+At its simplest, db is a set of helper functions that wrap around GameMaker's struct and array features to make them easier to use for savedata. In this sense, db is a library for conveniently manipulating JSON. JSON is a fabulous invention that [I famously have a passion for](https://www.youtube.com/watch?v=Uj7nr6vSRvs). I have found in my commercial work that the same problems need to be solved again and again and JSON is often the right tool for the job. What tends to get in the way is making JSON accessible and db goes some way to solve this problem.
 
 It's worth pointing out here that this discussion of db is going to presume familiarity with JSON, GameMaker's struct and array features, and general ideas of good practice in GameMaker development. I think db is easy to use but it's not a tool for the complete beginner. For programmers familiar with C#'s null-conditional operator (`a?.b` `a?[b]`), db is that plus some extra bells and whistles.
 
