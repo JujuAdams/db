@@ -1,8 +1,7 @@
 // Feather disable all
 
-/// Reads a value from a database. If the value cannot be found, the default value will be returned.
-/// 
-/// Please see `db_write()` for information on how the `key` arguments work.
+/// Reads a value from a database. If the value cannot be found, the default value will be
+/// returned. Please see `db_write()` for more information.
 /// 
 /// @param database
 /// @param default
@@ -11,7 +10,7 @@
 
 function db_read(_database, _default)
 {
-    if (argument_count < 2) __db_error("Incorrect number of arguments (got ", argument_count, ", was expecting at least 2)");
+    if (argument_count < 2) __db_error("Incorrect number of parameters (got ", argument_count, ", was expecting at least 2)");
     
     with(_database)
     {
@@ -25,18 +24,18 @@ function db_read(_database, _default)
             
             if (is_string(_key))
             {
-                if (!is_struct(_value))
+                if (not is_struct(_value))
                 {
                     __db_error("Key provided is a string (", _key, ") but current data structure is not a struct");
                 }
                 
-                if (!variable_struct_exists(_value, _key)) return _default;
+                if (not variable_struct_exists(_value, _key)) return _default;
                 
                 _value = _value[$ _key];
             }
             else if (is_numeric(_key))
             {
-                if (!is_array(_value))
+                if (not is_array(_value))
                 {
                     __db_error("Key provided is a number (", _key, ") but current data structure is not an array");
                 }

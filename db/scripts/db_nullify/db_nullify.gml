@@ -1,6 +1,6 @@
 // Feather disable all
 
-/// 
+/// Please see `db_write()` for more information.
 /// 
 /// @param database
 /// @param [key]
@@ -8,7 +8,7 @@
 
 function db_nullify(_database)
 {
-    if (argument_count < 1) __db_error("Incorrect number of arguments (got ", argument_count, ", was expecting at least 1)");
+    if (argument_count < 1) __db_error("Incorrect number of parameters (got ", argument_count, ", was expecting 1 or more)");
     
     if (argument_count == 1)
     {
@@ -47,7 +47,7 @@ function db_nullify(_database)
             
             if (is_string(_key))
             {
-                if (!is_struct(_node)) __db_error("Key provided is a string (", _key, ") but current data structure is not a struct");
+                if (not is_struct(_node)) __db_error("Key provided is a string (", _key, ") but current data structure is not a struct");
                 
                 if (variable_struct_exists(_node, _key))
                 {
@@ -95,7 +95,7 @@ function db_nullify(_database)
             }
             else if (is_numeric(_key))
             {
-                if (!is_array(_node)) __db_error("Key provided is a number (", _key, ") but current data structure is not an array");
+                if (not is_array(_node)) __db_error("Key provided is a number (", _key, ") but current data structure is not an array");
                 
                 if (_key < 0) __db_error("Array index is less than 0 (", _key, ")");
                 

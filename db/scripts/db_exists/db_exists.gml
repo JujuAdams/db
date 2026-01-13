@@ -1,8 +1,6 @@
 // Feather disable all
 
-/// Returns if a value exists in a database.
-/// 
-/// Please see `db_write()` for information on how the `key` arguments work.
+/// Returns if a value exists in a database. Please see `db_write()` for more information.
 /// 
 /// @param database
 /// @param [key]
@@ -22,18 +20,18 @@ function db_exists(_database)
             
             if (is_string(_key))
             {
-                if (!is_struct(_node))
+                if (not is_struct(_node))
                 {
                     __db_error("Key provided is a string (", _key, ") but current data structure is not a struct");
                 }
                 
-                if (!variable_struct_exists(_node, _key)) return false;
+                if (not variable_struct_exists(_node, _key)) return false;
                 
                 _node = _node[$ _key];
             }
             else if (is_numeric(_key))
             {
-                if (!is_array(_node))
+                if (not is_array(_node))
                 {
                     __db_error("Key provided is a number (", _key, ") but current data structure is not an array");
                 }

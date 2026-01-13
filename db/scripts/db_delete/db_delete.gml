@@ -1,8 +1,6 @@
 // Feather disable all
 
-/// Deletes a value from a database.
-/// 
-/// Please see `db_write()` for information on how the `key` arguments work.
+/// Deletes a value from a database. Please see `db_write()` for more information.
 /// 
 /// @param database
 /// @param [key]
@@ -22,12 +20,12 @@ function db_delete(_database)
             
             if (is_string(_key))
             {
-                if (!is_struct(_node))
+                if (not is_struct(_node))
                 {
                     __db_error("Key provided is a string (", _key, ") but current data structure is not a struct");
                 }
                 
-                if (!variable_struct_exists(_node, _key)) return;
+                if (not variable_struct_exists(_node, _key)) return;
                 
                 if (_i >= argument_count-1)
                 {
@@ -44,7 +42,7 @@ function db_delete(_database)
             }
             else if (is_numeric(_key))
             {
-                if (!is_array(_node))
+                if (not is_array(_node))
                 {
                     __db_error("Key provided is a number (", _key, ") but current data structure is not an array");
                 }

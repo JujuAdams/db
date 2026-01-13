@@ -105,7 +105,7 @@ function __db_to_json_buffer_value(_buffer, _value, _pretty, _alphabetise, _accu
                 repeat(_count)
                 {
                     var _name = _names[_i];
-                    if (!is_string(_name)) show_error("__db_buffer_write_json:\nKeys must be strings\n ", true);
+                    if (not is_string(_name)) show_error("__db_buffer_write_json:\nKeys must be strings\n ", true);
                     
                     buffer_write(_buffer, buffer_text, _indent);
                     buffer_write(_buffer, buffer_u8,   0x22); // Double quote
@@ -134,7 +134,7 @@ function __db_to_json_buffer_value(_buffer, _value, _pretty, _alphabetise, _accu
                 repeat(_count)
                 {
                     var _name = _names[_i];
-                    if (!is_string(_name)) show_error("__db_buffer_write_json:\nKeys must be strings\n ", true);
+                    if (not is_string(_name)) show_error("__db_buffer_write_json:\nKeys must be strings\n ", true);
                     
                     buffer_write(_buffer, buffer_u8,   0x22); // Double quote
                     buffer_write(_buffer, buffer_text, string(_name));

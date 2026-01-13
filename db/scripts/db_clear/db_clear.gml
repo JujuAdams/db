@@ -1,6 +1,7 @@
 // Feather disable all
 
-/// Removes all data from a database.
+/// Removes all data from a database. If the database contained data then it will be marked as
+/// changed.
 /// 
 /// @param database
 
