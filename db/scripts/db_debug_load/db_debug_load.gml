@@ -17,11 +17,12 @@ function db_debug_load(_path)
     try
     {
         var _buffer = buffer_load(_path);
-        _database = __db_deserialize(buffer_read(_buffer, buffer_text));
+        _database = db_buffer_read(_buffer);
     }
     catch(_error)
     {
-        show_debug_message("db: Warning! Failed to parse JSON");
+        __db_trace(_error);
+        __db_trace($"Warning! Failed to load \"{_path}\"");
     }
     finally
     {

@@ -1,10 +1,23 @@
 // Feather disable all
 
-/// Reads a database from a buffer. This function creates a new database and returns it.
+/// Reads a buffer and creates a new database from its contents. If the buffer contains invalid
+/// data or has been corrupted in some way then this function will return `undefined`.
 /// 
 /// @param buffer
 
 function db_buffer_read(_buffer)
 {
-    return __db_deserialize(buffer_read(_buffer, buffer_string));
+    var _database = undefined;
+    
+    try
+    {
+        _database = __db_deserialize(buffer_read(_buffer, buffer_string));
+    }
+    catch(_error)
+    {
+        __db_trace(_error);
+        __db_trace("Warning! Failed to parse buffer");
+    }
+    
+    return _database;
 }
