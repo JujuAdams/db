@@ -16,6 +16,6 @@ function __db_class() constructor
 #macro DB_DATE          "2025-01-29"
 #macro DB_SAVE_VERSION  2
 
-show_debug_message($"db: Welcome to db by Juju Adams! This is version {DB_VERSION}, {DB_DATE}");
-show_debug_message($"db: This version will output version `{DB_SAVE_VERSION}` savefiles");
-show_debug_message($"db: This version will read version `1` and `2` savefiles");
+__db_trace($"Welcome to db by Juju Adams! This is version {DB_VERSION}, {DB_DATE}");
+__db_trace($"This version will output version `{DB_SAVE_VERSION}` savefiles");
+__db_trace($"This version will read version `1` and `2` savefiles");

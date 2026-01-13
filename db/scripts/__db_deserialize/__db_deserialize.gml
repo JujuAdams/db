@@ -24,8 +24,8 @@ function __db_deserialize(_string)
     }
     catch(_error)
     {
-        show_debug_message(_error);
-        show_debug_message("db: Warning! Failed to parse JSON");
+        __db_trace(_error);
+        __db_trace("Warning! Failed to parse JSON");
     }
     
     return _database;
