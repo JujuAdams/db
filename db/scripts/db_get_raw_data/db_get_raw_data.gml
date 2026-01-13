@@ -1,6 +1,7 @@
 // Feather disable all
 
-/// Returns the raw data structure stored inside a database.
+/// Returns the raw data structure stored inside a database. This will be nested struct/array
+/// collection of some kind, depending on what values you've set.
 /// 
 /// @param database
 
