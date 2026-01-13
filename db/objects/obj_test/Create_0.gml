@@ -1,3 +1,5 @@
+show_debug_message("");
+
 db_a = db_create();
 db_write(db_a, 10, "test", 0, "test 2");
 db_write(db_a, object_index, "test obj reference");
@@ -13,7 +15,9 @@ db_write(db_c, { a: 0 }, "test");
 db_write(db_c, 1, "test", "a");
 db_write(db_c, 2, "test", "b");
 db_patch(db_c, { c: [3, 3] }, "test");
-db_patch(db_c, [undefined, 4], "test", "c");
+show_debug_message(db_get_debug_string(db_c));
+show_debug_message("");
+db_patch(db_c, [pointer_null, 10], "test", "c");
 show_debug_message(db_get_debug_string(db_c));
 show_debug_message("");
 
