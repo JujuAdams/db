@@ -30,7 +30,6 @@
     {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
     {"id":{"name":"__db_buffer_write_json","path":"scripts/__db_buffer_write_json/__db_buffer_write_json.yy",},},
     {"id":{"name":"__db_class","path":"scripts/__db_class/__db_class.yy",},},
-    {"id":{"name":"__db_deep_copy","path":"scripts/__db_deep_copy/__db_deep_copy.yy",},},
     {"id":{"name":"__db_deserialize","path":"scripts/__db_deserialize/__db_deserialize.yy",},},
     {"id":{"name":"__db_error","path":"scripts/__db_error/__db_error.yy",},},
     {"id":{"name":"__db_number_to_string","path":"scripts/__db_number_to_string/__db_number_to_string.yy",},},

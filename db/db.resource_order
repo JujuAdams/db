@@ -5,7 +5,6 @@
     {"name":"obj_test","order":3,"path":"objects/obj_test/obj_test.yy",},
     {"name":"rm_main","order":4,"path":"rooms/rm_main/rm_main.yy",},
     {"name":"__db_buffer_write_json","order":5,"path":"scripts/__db_buffer_write_json/__db_buffer_write_json.yy",},
-    {"name":"__db_deep_copy","order":4,"path":"scripts/__db_deep_copy/__db_deep_copy.yy",},
     {"name":"__db_deserialize","order":2,"path":"scripts/__db_deserialize/__db_deserialize.yy",},
     {"name":"__db_error","order":1,"path":"scripts/__db_error/__db_error.yy",},
     {"name":"__db_number_to_string","order":6,"path":"scripts/__db_number_to_string/__db_number_to_string.yy",},
