@@ -8,7 +8,7 @@ function __db_class() constructor
     
     static toString = function()
     {
-        return "<database " + string(ptr(self)) + ">";
+        return "<database " + string_delete(string(ptr(self)), 1, 8) + ">";
     }
 }
 
