@@ -25,7 +25,6 @@
   },
   "name":"db",
   "resources":[
-    {"id":{"name":"Logging TODO","path":"notes/Logging TODO/Logging TODO.yy",},},
     {"id":{"name":"obj_test","path":"objects/obj_test/obj_test.yy",},},
     {"id":{"name":"rm_main","path":"rooms/rm_main/rm_main.yy",},},
     {"id":{"name":"__db_buffer_write_json","path":"scripts/__db_buffer_write_json/__db_buffer_write_json.yy",},},

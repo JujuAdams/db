@@ -5,7 +5,6 @@
     {"name":"Properties","order":3,"path":"folders/db/Properties.yy",},
   ],
   "ResourceOrderSettings":[
-    {"name":"Logging TODO","order":5,"path":"notes/Logging TODO/Logging TODO.yy",},
     {"name":"obj_test","order":3,"path":"objects/obj_test/obj_test.yy",},
     {"name":"rm_main","order":4,"path":"rooms/rm_main/rm_main.yy",},
     {"name":"__db_buffer_write_json","order":4,"path":"scripts/__db_buffer_write_json/__db_buffer_write_json.yy",},

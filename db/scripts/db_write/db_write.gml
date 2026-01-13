@@ -1,6 +1,6 @@
 // Feather disable all
 
-/// Writes a value into a database, overwriting a previous value if one exists. Values can be atomic types
+/// Writes a value into a database, overwriting a previous value if one exists. Values can be basic types
 /// (string, number, `undefined`, booleans) or a struct or array.
 /// 
 /// Interally, db databases are stored as nested structs and arrays ("JSON"). Keys are used to navigate these
