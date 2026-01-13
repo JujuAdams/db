@@ -23,7 +23,7 @@ db is centred around the concept of "lazy access". This is pretty much what it s
 
 The following example shows nested struct access and how db can help make code both safer and friendlier to write. Please note that db works just as well with arrays and structs combined even if the example doesn't contain any arrays. Anyway, consider the following JSON structure:
 
-```
+```gml
 global.data = {
     "settings": {
         "audio": {
@@ -34,7 +34,7 @@ global.data = {
 }
 ```
 
-If we want to read the volume to play music at we'd read `global.data.settings.audio.music`. We're telling the program that we want to read exactly that value stored deep inside a JSON tree. If the program can't find that value then the program will "throw an exception" a.k.a. crash. Reading information from a bunch of nested structs like this is a brittle operation - if one part of the chain snaps then the whole chain fails. For settings data specifically this sort of problem could happen in multiple ways: you forgot to initialize empty savedata correctly when starting a new game, you added a new settings option and the player is migrating old savedata that is missing the new setting, you made a typo in the command, there has been data corruption, etc.  Nothing will frustrate your players more than broken savedata and rightly so.
+If we want to read the volume to play music at we'd read `global.data.settings.audio.music`. We're telling the program that we want to read exactly that value stored deep inside a JSON tree by accessing a sequence of structs. If the program can't find any one of those structs then the program will "throw an exception" a.k.a. crash. Reading information from a bunch of nested structs like this is a brittle operation - if one part of the chain snaps then the whole chain fails. For settings data specifically this sort of problem could happen in multiple ways: you forgot to initialize empty savedata correctly when starting a new game, you added a new settings option and the player is migrating old savedata that is missing the new setting, you made a typo in the command, there has been data corruption, etc.  Nothing will frustrate your players more than broken savedata and rightly so.
 
 What we need is a more robust way of accessing data such that if some part of the data is missing then the game is able to recover or at least fall back on good default behaviour. If we were going to do this in native GML it would look like this:
 
