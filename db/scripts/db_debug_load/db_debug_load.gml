@@ -1,31 +1,32 @@
 // Feather disable all
 
-/// Synchronously loads a database that has been saved by `db_debug_save()`.
+/// Synchronously loads a database that has been saved by `db_debug_save()`. If this function fails
+/// to load the file or fails to parse its contents then this function will return `undefined`. Be
+/// sure to handle this failure state.
 /// 
-/// N.B. This function is provided for debug use only and should not be used in production.
-///      Instead, load the buffer asynchronously and use `db_buffer_read()`.
+/// N.B. This function is provided for debug use only and should not be used in production or on
+///      consoles. Instead, load the buffer asynchronously and use `db_buffer_read()` to create a
+///      database from the loaded binary data.
 /// 
-/// N.B. This function will not work properly on console (Switch, PlayStation, Xbox).
+/// @param path
 
-function db_debug_load(_filename)
+function db_debug_load(_path)
 {
-    if (!file_exists(_filename)) __db_error("Could not find \"", _filename, "\"");
-    
-    var _buffer   = undefined;
     var _database = undefined;
     
     try
     {
-        _buffer = buffer_load(_filename);
+        var _buffer = buffer_load(_path);
         _database = __db_deserialize(buffer_read(_buffer, buffer_text));
-        buffer_delete(_buffer);
     }
     catch(_error)
     {
         show_debug_message("db: Warning! Failed to parse JSON");
     }
-    
-    if ((_buffer != undefined) && (_buffer > 0)) buffer_delete(_buffer);
+    finally
+    {
+        buffer_delete(_buffer);
+    }
     
     return _database;
 }
