@@ -51,7 +51,6 @@
     {"id":{"name":"db_get_timestamp","path":"scripts/db_get_timestamp/db_get_timestamp.yy",},},
     {"id":{"name":"db_has_data","path":"scripts/db_has_data/db_has_data.yy",},},
     {"id":{"name":"db_most_recent","path":"scripts/db_most_recent/db_most_recent.yy",},},
-    {"id":{"name":"db_nullify","path":"scripts/db_nullify/db_nullify.yy",},},
     {"id":{"name":"db_patch","path":"scripts/db_patch/db_patch.yy",},},
     {"id":{"name":"db_read","path":"scripts/db_read/db_read.yy",},},
     {"id":{"name":"db_set_changed","path":"scripts/db_set_changed/db_set_changed.yy",},},
