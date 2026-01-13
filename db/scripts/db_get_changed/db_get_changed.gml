@@ -1,6 +1,8 @@
 // Feather disable all
 
-/// Returns if a database has been changed since the last time this function was called.
+/// Returns if a database has been changed since the last time this function was called. This
+/// function will automatically clear the changed state for the database when called. If you'd like
+/// the changed state to persist, set the optional `reset` parameter to `false`.
 /// 
 /// @param database
 /// @param [resetState=true]

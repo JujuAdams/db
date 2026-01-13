@@ -1,13 +1,14 @@
 // Feather disable all
 
-/// Sorts an array of databases based on their timestamps.
+/// Sorts an array of databases based on their timestamps. Set the `descending` parameter to `true`
+/// to order from newest to oldest.
 /// 
 /// @param arrayOfDatabases
-/// @param mostRecent
+/// @param descending
 
-function db_sort_by_timestamp(_array, _most_recent)
+function db_sort_by_timestamp(_array, _descending)
 {
-    if (_most_recent)
+    if (_descending)
     {
         array_sort(_array, function(_a, _b)
         {

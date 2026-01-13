@@ -1,6 +1,8 @@
 // Feather disable all
 
-/// Returns the database, from an array of databases, that has the most recent timestamp.
+/// Returns the database in an array of databases that has the most recent timestamp. Set the
+/// optional `returnIndex` parameter to `true` to return the index of the database in the array
+/// rather than the database itself.
 /// 
 /// @param arrayOfDatabases
 /// @param [returnIndex=false]
@@ -25,5 +27,5 @@ function db_most_recent(_array, _return_index = false)
         ++_i;
     }
     
-    return _return_index? _max_index : _max_timestamp;
+    return _return_index? _max_index : _max_database;
 }
