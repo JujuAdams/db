@@ -17,7 +17,9 @@
     {"$GMFolder":"","%Name":"Properties","folderPath":"folders/db/Properties.yy","name":"Properties","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
-  "IncludedFiles":[],
+  "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"db_license.txt","CopyToMask":-1,"filePath":"datafiles","name":"db_license.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+  ],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
