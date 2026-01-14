@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__db_trace",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__db_trace",
+  "parent":{
+    "name":"(System)",
+    "path":"folders/db/(System).yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

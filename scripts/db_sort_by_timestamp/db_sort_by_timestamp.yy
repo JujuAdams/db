@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"db_sort_by_timestamp",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"db_sort_by_timestamp",
+  "parent":{
+    "name":"Properties",
+    "path":"folders/db/Properties.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

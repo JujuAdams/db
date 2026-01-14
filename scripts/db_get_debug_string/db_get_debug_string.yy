@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"db_get_debug_string",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"db_get_debug_string",
+  "parent":{
+    "name":"db",
+    "path":"folders/db.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"db_most_recent",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"db_most_recent",
+  "parent":{
+    "name":"Properties",
+    "path":"folders/db/Properties.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

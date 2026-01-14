@@ -1,0 +1,32 @@
+// Feather disable all
+
+function __db_deserialize(_string)
+{
+    var _database = undefined;
+    
+    try
+    {
+        var _json = json_parse(_string);
+        switch(_json.version)
+        {
+            case 1:
+            case 2:
+                _database = db_create();
+                db_set_metadata(_database, _json.metadata);
+                db_set_raw_data(_database, _json.data);
+                db_set_timestamp(_database, _json.timestamp);
+            break;
+            
+            default:
+                __db_error("Unsupported version ", _json.version);
+            break;
+        }
+    }
+    catch(_error)
+    {
+        __db_trace(_error);
+        __db_trace("Warning! Failed to parse JSON");
+    }
+    
+    return _database;
+}
