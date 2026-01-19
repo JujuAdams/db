@@ -1,5 +1,5 @@
 <p align="center"><img src="https://raw.githubusercontent.com/JujuAdams/db/master/LOGO.png" style="display:block; margin:auto; width:300px"></p>
-<h1 align="center">db 2.1.0</h1>
+<h1 align="center">db 2.2.0</h1>
 
 <p align="center">Savedata database system for GameMaker 2024.14</p>
 
