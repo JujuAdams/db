@@ -1,5 +1,5 @@
 <p align="center"><img src="https://raw.githubusercontent.com/JujuAdams/db/master/LOGO.png" style="display:block; margin:auto; width:300px"></p>
-<h1 align="center">db 2.1.0</h1>
+<h1 align="center">db 2.2.0</h1>
 
 <p align="center">Savedata database system for GameMaker 2024.14</p>
 
@@ -114,7 +114,7 @@ db has further functions that operate on JSON data along the "lazy access" princ
 
 db isn't going to fix bugs for you or answer architectural questions. If you need big binary blobs or can't use JSON for savedata (such as for data with circular references) then db will be of no use. db is also not going to work well if you're prone to lots of typos. One of the sacrifices we make as developers is the trade-off between safety and flexibility. Generally speaking, the more flexible the system the easier it is to make mistakes. This is certainly the case for db where a typo will manifest as data being saved where it shouldn't be or default values being returned unexpectedly.
 
-db also doesn't natively handle the actual action of saving and loading to a device's storage. db gives structure to your data and tools to get at that data but it stops short of being a comprehensive file access system. It'd be far too much complexity for one library to cover everything without being overwhelming. File access is a surprisingly tricky subject and [other libraries](https://github.com/jujuadams/Sparkle-Store) should be used for the file operations themselves. That having been said, there are two debug save/load functions for quick testing. Further on in this guide you'll find some advice on saving and loading files in a way that ensures you're not left high and dry when trying to port your game to console.
+db also doesn't natively handle the actual action of saving and loading to a device's storage. db gives structure to your data and tools to get at that data but it stops short of being a comprehensive file access system. It'd be far too much complexity for one library to cover everything without being overwhelming. File access is a surprisingly tricky subject and [other libraries](https://github.com/jujuadams/SparkleStore) should be used for the file operations themselves. That having been said, there are two debug save/load functions for quick testing. Further on in this guide you'll find some advice on saving and loading files in a way that ensures you're not left high and dry when trying to port your game to console.
 
 &nbsp;
 
@@ -134,7 +134,7 @@ This change state, along with metadata and a timestamp, is stored inside the roo
 
 db contains two debug functions that can be used to easily save databases to disk - `db_debug_save()` and `db_debug_load()`. As the names suggest, these are intended only for debug use. You should not use these functions in production.
 
-You should save and load buffers asynchronously for proper game builds. You can use GameMaker's [native async buffer functions](https://manual.gamemaker.io/lts/en/GameMaker_Language/GML_Reference/Buffers/buffer_save_async.htm) and db is compatible with existing save/load systems that use GameMaker's async buffer functions. Alternatively, you can use another library that I've made called [Sparkle Store](https://github.com/jujuadams/Sparkle-Store) that wraps around the native GameMaker functions and gives you a more friendly API to use.
+You should save and load buffers asynchronously for proper game builds. You can use GameMaker's [native async buffer functions](https://manual.gamemaker.io/lts/en/GameMaker_Language/GML_Reference/Buffers/buffer_save_async.htm) and db is compatible with existing save/load systems that use GameMaker's async buffer functions. Alternatively, you can use another library that I've made called [SparkleStore](https://github.com/jujuadams/SparkleStore) that wraps around the native GameMaker functions and gives you a more friendly API to use.
 
 ### Native functions
 
@@ -210,9 +210,9 @@ if (loadID == _id)
 }
 ```
 
-### Sparkle Store
+### SparkleStore
 
-Sparkle Store uses callback functions. Please see [documentation](https://github.com/jujuadams/Sparkle-Store) for more information. Sparkle Store also has a handful config macros and functions that you can use to set up properly for console.
+SparkleStore uses callback functions. Please see [documentation](https://github.com/jujuadams/SparkleStore) for more information. SparkleStore also has a handful config macros and functions that you can use to set up properly for console.
 
 #### Saving:
 
