@@ -2,7 +2,7 @@
 
 function __db_error() 
 {
-	var _string = "db:\n";
+	var _string = $"db {DB_VERSION}:\n";
     
 	var _i = 0;
 	repeat(argument_count)
