@@ -2,8 +2,12 @@
 
 /// Reads a value from a database. If the value cannot be found in the database, `db_default()`
 /// will be called using the same keys and that value will be returned instead. If no default value
-/// is found using `db_default()` then this function will return `undefined`. Please see
-/// `db_write()` for more information regarding database structure.
+/// is found using `db_default()` then this function will return `undefined`.
+/// 
+/// This function should be used alongside `db_set_default_data()`. If you don't want to use the
+/// default data template feature, please instead use `db_read_ext()` which allows you to specify
+/// a default value on a case-by-case basis. Please further see `db_write()` for more information
+/// regarding database structure.
 /// 
 /// @param database
 /// @param [key]

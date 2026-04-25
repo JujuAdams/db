@@ -1,3 +1,7 @@
+// Feather disable all
+
+/// Reads the default value for a sequence of keys, as set by `db_set_default_data()`.
+/// 
 /// @param database
 /// @param [key]
 /// @param ...

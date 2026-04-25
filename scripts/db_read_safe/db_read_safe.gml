@@ -1,7 +1,9 @@
 // Feather disable all
 
-/// Reads a value from a database. If the value cannot be found, the default value will be
-/// returned. Please see `db_write()` for more information.
+/// Reads a value from a database. If the value cannot be found, the value given by the `default`
+/// parameter will be returned. This means that this function, unlike `db_read()`, will ignore
+/// values set by `db_set_default_data()`. Please see `db_write()` for more information regarding
+/// database structure.
 /// 
 /// @param database
 /// @param default
