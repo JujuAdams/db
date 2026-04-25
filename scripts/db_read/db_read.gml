@@ -1,7 +1,9 @@
 // Feather disable all
 
-/// Reads a value from a database. If the value cannot be found, `undefined` will be returned.
-/// Please see `db_write()` for more information.
+/// Reads a value from a database. If the value cannot be found in the database, `db_default()`
+/// will be called using the same keys and that value will be returned instead. If no default value
+/// is found using `db_default()` then this function will return `undefined`. Please see
+/// `db_write()` for more information regarding database structure.
 /// 
 /// @param database
 /// @param [key]
@@ -60,6 +62,50 @@ function db_read(_database)
             {
                 return _value;
             }
+        }
+        
+        if (argument_count == 1)
+        {
+            return db_default(_database);
+        }
+        else if (argument_count == 2)
+        {
+            return db_default(_database, argument[1]);
+        }
+        else if (argument_count == 3)
+        {
+            return db_default(_database, argument[1], argument[2]);
+        }
+        else if (argument_count == 4)
+        {
+            return db_default(_database, argument[1], argument[2], argument[3]);
+        }
+        else if (argument_count == 5)
+        {
+            return db_default(_database, argument[1], argument[2], argument[3], argument[4]);
+        }
+        else if (argument_count == 6)
+        {
+            return db_default(_database, argument[1], argument[2], argument[3], argument[4], argument[5]);
+        }
+        else if (argument_count == 7)
+        {
+            return db_default(_database, argument[1], argument[2], argument[3], argument[4], argument[5], argument[6]);
+        }
+        else
+        {
+            static _array = [];
+            array_resize(_array, argument_count);
+            
+            var _i = 0;
+            repeat(argument_count)
+            {
+                _array[@ _i] = argument[_i];
+                ++_i;
+            }
+            
+            script_execute_ext(db_default, _array);
+            array_resize(_array, 0);
         }
     }
     

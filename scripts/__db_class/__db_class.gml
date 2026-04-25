@@ -4,10 +4,11 @@
 
 function __db_class(_initialData) constructor
 {
-    __metadata  = undefined;
-    __data      = _initialData;
-    __changed   = false;
-    __timestamp = date_current_datetime();
+    __metadata    = undefined;
+    __data        = _initialData;
+    __defaultData = undefined;
+    __changed     = false;
+    __timestamp   = date_current_datetime();
     
     static toString = function()
     {

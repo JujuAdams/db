@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"db_get_default_data",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"db_get_default_data",
+  "parent":{
+    "name":"Properties",
+    "path":"folders/db/Properties.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
