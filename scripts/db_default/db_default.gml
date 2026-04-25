@@ -53,7 +53,7 @@ function db_default(_database)
                     return undefined;
                 }
                 
-                _value = _value[clamp(_key, 0, array_length(_value)-1)];
+                _value = _value[0];
             }
             else
             {
