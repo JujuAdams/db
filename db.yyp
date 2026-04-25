@@ -55,7 +55,7 @@
     {"id":{"name":"db_has_data","path":"scripts/db_has_data/db_has_data.yy",},},
     {"id":{"name":"db_most_recent","path":"scripts/db_most_recent/db_most_recent.yy",},},
     {"id":{"name":"db_patch","path":"scripts/db_patch/db_patch.yy",},},
-    {"id":{"name":"db_read_safe","path":"scripts/db_read_safe/db_read_safe.yy",},},
+    {"id":{"name":"db_read_ext","path":"scripts/db_read_ext/db_read_ext.yy",},},
     {"id":{"name":"db_read","path":"scripts/db_read/db_read.yy",},},
     {"id":{"name":"db_set_changed","path":"scripts/db_set_changed/db_set_changed.yy",},},
     {"id":{"name":"db_set_default_data","path":"scripts/db_set_default_data/db_set_default_data.yy",},},

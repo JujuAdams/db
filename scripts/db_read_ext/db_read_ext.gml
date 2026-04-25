@@ -10,7 +10,7 @@
 /// @param [key]
 /// @param ...
 
-function db_read_safe(_database, _default)
+function db_read_ext(_database, _default)
 {
     if (argument_count < 2) __db_error("Incorrect number of parameters (got ", argument_count, ", was expecting at least 2)");
     

@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"db_read_safe",
+  "%Name":"db_read_ext",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"db_read_safe",
+  "name":"db_read_ext",
   "parent":{
     "name":"Access",
     "path":"folders/db/Access.yy",

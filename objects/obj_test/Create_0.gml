@@ -7,8 +7,8 @@ db_debug_save(db_a, "a.json");
 
 db_b = db_debug_load("a.json");
 show_debug_message("=== db_b ===");
-show_debug_message(db_read_safe(db_b, 0, "test", 0, "test 2"));
-show_debug_message(object_get_name(handle_parse(db_read_safe(db_b, undefined, "test obj reference"))));
+show_debug_message(db_read_ext(db_b, 0, "test", 0, "test 2"));
+show_debug_message(object_get_name(handle_parse(db_read_ext(db_b, undefined, "test obj reference"))));
 show_debug_message(db_read(db_b, "test 2", 0));
 show_debug_message("");
 
