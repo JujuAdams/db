@@ -43,9 +43,8 @@ db_e = db_create({
             first: 3.141,
         },
     },
-});
-
-db_set_default_data(db_e, {
+},
+{
     structs: {
         a: 1,
         b: 2,

@@ -1,12 +1,13 @@
 // Feather disable all
 
 /// @param initialData
+/// @param defaultData
 
-function __db_class(_initialData) constructor
+function __db_class(_initialData, _defaultData) constructor
 {
     __metadata    = undefined;
     __data        = _initialData;
-    __defaultData = undefined;
+    __defaultData = _defaultData;
     __changed     = false;
     __timestamp   = date_current_datetime();
     
