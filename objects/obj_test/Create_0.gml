@@ -6,8 +6,10 @@ db_write(db_a, object_index, "test obj reference");
 db_debug_save(db_a, "a.json");
 
 db_b = db_debug_load("a.json");
-show_debug_message(db_read(db_b, 0, "test", 0, "test 2"));
-show_debug_message(object_get_name(handle_parse(db_read(db_b, undefined, "test obj reference"))));
+show_debug_message("=== db_b ===");
+show_debug_message(db_read_safe(db_b, 0, "test", 0, "test 2"));
+show_debug_message(object_get_name(handle_parse(db_read_safe(db_b, undefined, "test obj reference"))));
+show_debug_message(db_read(db_b, "test 2", 0));
 show_debug_message("");
 
 db_c = db_create();
@@ -15,6 +17,8 @@ db_write(db_c, { a: 0 }, "test");
 db_write(db_c, 1, "test", "a");
 db_write(db_c, 2, "test", "b");
 db_patch(db_c, { c: [3, 3] }, "test");
+
+show_debug_message("=== db_c ===");
 show_debug_message(db_get_debug_string(db_c));
 show_debug_message("");
 db_patch(db_c, [pointer_null, 10], "test", "c");
@@ -25,5 +29,56 @@ db_d = db_create();
 db_write(db_d, 1, "a");
 db_write(db_d, 2, "b");
 db_write(db_d, 3, "c", "d");
+show_debug_message("=== db_d ===");
 show_debug_message(db_get_debug_string(db_d));
+show_debug_message("");
+
+db_e = db_create({
+    structs: {
+        a: 1,
+        c: 3,
+    },
+    templates: {
+        a: {
+            first: 3.141,
+        },
+    },
+});
+
+db_set_default_data(db_e, {
+    structs: {
+        a: 1,
+        b: 2,
+        c: 3,
+    },
+    templates: {
+        no_template: {
+            first: 10,
+            second: 20,
+        },
+        __template: {
+            first: 1,
+            second: 2,
+        },
+    },
+    arrays: [
+        "array default",
+    ],
+    arrays_with_nesting: [
+        {
+            __template: "template value",
+        },
+    ],
+});
+
+show_debug_message("=== db_e ===");
+show_debug_message(db_read(db_e, "structs", "a"));
+show_debug_message(db_read(db_e, "structs", "b"));
+show_debug_message(db_read(db_e, "structs", "c"));
+show_debug_message(db_read(db_e, "templates", "no_template", "first"));
+show_debug_message(db_read(db_e, "templates", "a", "first"));
+show_debug_message(db_read(db_e, "templates", "b", "second"));
+show_debug_message(db_read(db_e, "arrays", 42));
+show_debug_message(db_read(db_e, "arrays_with_nesting", 7, "a"));
+show_debug_message(db_read(db_e, "arrays_with_nesting", 7, "b"));
 show_debug_message("");
