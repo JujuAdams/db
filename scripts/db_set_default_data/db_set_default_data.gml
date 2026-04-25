@@ -2,7 +2,7 @@
 
 /// Sets the default data template for a database, overwriting whatever default data was previously
 /// set. This function will not set the "changed" state of the database. Default values that you
-/// set with this function can be returned by `db_default()` and `db_read()`.
+/// set with this function can be returned by `db_default()` and `db_read_ext()`.
 /// 
 /// The default data template should follow a specific format.
 /// 

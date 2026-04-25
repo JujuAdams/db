@@ -35,13 +35,13 @@ function db_default(_database)
                 {
                     _value = _value[$ _key];
                 }
-                else if (struct_exists_from_hash(_value, variable_get_hash("__template")))
+                else if (struct_exists_from_hash(_value, variable_get_hash("__default")))
                 {
-                    _value = struct_get_from_hash(_value, variable_get_hash("__template"));
+                    _value = struct_get_from_hash(_value, variable_get_hash("__default"));
                 }
                 else
                 {
-                    __db_error("Struct has no \"__template\" variable and is missing variable \"", _key, "\"");
+                    __db_error("Struct has no \"__default\" variable and is missing variable \"", _key, "\"");
                 }
             }
             else if (is_numeric(_key))
