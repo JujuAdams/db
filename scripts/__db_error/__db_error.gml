@@ -11,6 +11,6 @@ function __db_error()
 	    ++_i;
 	}
 	
-    show_error(_string + "\n ", true);
+    show_error(" \n" + _string + "\n ", true);
 	return _string;
 }

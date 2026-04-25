@@ -1,6 +1,7 @@
 // Feather disable all
 
-/// Reads the default value for a sequence of keys, as set by `db_set_default_data()`.
+/// Reads the default value for a sequence of keys, as set by `db_set_default_data()`. If default
+/// data cannot be found for the given key then this function will show an error message.
 /// 
 /// @param database
 /// @param [key]
@@ -13,7 +14,10 @@ function db_default(_database)
     with(_database)
     {
         var _value = __defaultData;
-        if (_value == undefined) return undefined;
+        if (_value == undefined)
+        {
+            __db_error("No default data has been set with `db_set_default_data()`");
+        }
         
         var _i = 1;
         repeat(argument_count-1)
@@ -37,7 +41,7 @@ function db_default(_database)
                 }
                 else
                 {
-                    return undefined;
+                    __db_error("Struct has no \"__template\" variable and is missing variable \"", _key, "\"");
                 }
             }
             else if (is_numeric(_key))
@@ -54,10 +58,10 @@ function db_default(_database)
                 
                 if (array_length(_value) <= 0)
                 {
-                    return undefined;
+                    __db_error("Template array is empty");
                 }
                 
-                _value = _value[0];
+                _value = _value[clamp(_key, 0, array_length(_value)-1)];
             }
             else
             {
