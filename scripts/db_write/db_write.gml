@@ -22,7 +22,7 @@
 ///   }
 /// 
 /// Example:
-///   db_write(database, { item: "bullet", quantity: 2}, "playerData", 0, "inventory", 3);
+///   db_write(database, { item: "bullet", quantity: 2 }, "playerData", 0, "inventory", 3);
 /// will generate the following JSON:
 ///   {
 ///       playerData: [

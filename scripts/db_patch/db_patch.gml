@@ -7,7 +7,7 @@
 /// that index to `pointer_null` in the incoming patch data. For example:
 /// 
 ///   database = db_create([ 0, 1, 2 ]);
-///   db_merge(database, [ "a", pointer_null, "c" ]);
+///   db_patch(database, [ "a", pointer_null, "c" ]);
 ///   db_get_raw_data(database) --> ["a", 1, "c"];
 /// 
 /// @param database
