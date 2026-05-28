@@ -1,23 +1,22 @@
 // Feather disable all
 
-/// Reads a value from a database. If the value cannot be found, the value given by the `default`
-/// parameter will be returned. This means that this function, unlike `db_read_ext()`, will ignore
-/// values set by `db_set_default_data()`. Please see `db_write()` for more information regarding
-/// database structure.
+/// Reads a value from a database. If the value cannot be found then `undefined` will be returned.
+/// This means that this function, unlike `db_read_then_default()`, will ignore values set by
+/// `db_set_default_data()`. Please see `db_write()` for more information regarding database
+/// structure.
 /// 
 /// @param database
-/// @param default
 /// @param [key]
 /// @param ...
 
-function db_read(_database, _default)
+function db_read(_database)
 {
     if (argument_count < 2) __db_error("Incorrect number of parameters (got ", argument_count, ", was expecting at least 2)");
     
     with(_database)
     {
         var _value = __data;
-        if (_value == undefined) return _default;
+        if (_value == undefined) return undefined;
         
         var _i = 2;
         repeat(argument_count-2)
@@ -31,7 +30,7 @@ function db_read(_database, _default)
                     __db_error("Key provided is a string (", _key, ") but current data structure is not a struct");
                 }
                 
-                if (not variable_struct_exists(_value, _key)) return _default;
+                if (not variable_struct_exists(_value, _key)) return undefined;
                 
                 _value = _value[$ _key];
             }
@@ -47,7 +46,7 @@ function db_read(_database, _default)
                     __db_error("Array index is less than 0 (", _key, ")");
                 }
                 
-                if (_key >= array_length(_value)) return _default;
+                if (_key >= array_length(_value)) return undefined;
                 
                 _value = _value[_key];
             }

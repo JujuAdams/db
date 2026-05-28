@@ -7,8 +7,8 @@ db_debug_save(db_a, "a.json");
 
 db_b = db_debug_load("a.json");
 show_debug_message("=== db_b ===");
-show_debug_message(db_read(db_b, 0, "test", 0, "test 2"));
-show_debug_message(object_get_name(handle_parse(db_read(db_b, undefined, "test obj reference"))));
+show_debug_message(db_read(db_b, "test", 0, "test 2") ?? 0);
+show_debug_message(object_get_name(handle_parse(db_read(db_b, "test obj reference"))));
 show_debug_message("");
 
 db_c = db_create();
@@ -54,7 +54,7 @@ db_e = db_create({
             first: 10,
             second: 20,
         },
-        __default: {
+        _CATCH_: {
             first: 1,
             second: 2,
         },
@@ -64,19 +64,19 @@ db_e = db_create({
     ],
     arrays_with_nesting: [
         {
-            __default: "template value",
+            _CATCH_: "template value",
         },
     ],
 });
 
 show_debug_message("=== db_e ===");
-show_debug_message(db_read_ext(db_e, "structs", "a"));
-show_debug_message(db_read_ext(db_e, "structs", "b"));
-show_debug_message(db_read_ext(db_e, "structs", "c"));
-show_debug_message(db_read_ext(db_e, "defaults", "no_default", "first"));
-show_debug_message(db_read_ext(db_e, "defaults", "a", "first"));
-show_debug_message(db_read_ext(db_e, "defaults", "b", "second"));
-show_debug_message(db_read_ext(db_e, "arrays", 42));
-show_debug_message(db_read_ext(db_e, "arrays_with_nesting", 7, "a"));
-show_debug_message(db_read_ext(db_e, "arrays_with_nesting", 7, "b"));
+show_debug_message(db_read_then_default(db_e, "structs", "a"));
+show_debug_message(db_read_then_default(db_e, "structs", "b"));
+show_debug_message(db_read_then_default(db_e, "structs", "c"));
+show_debug_message(db_read_then_default(db_e, "defaults", "no_default", "first"));
+show_debug_message(db_read_then_default(db_e, "defaults", "a", "first"));
+show_debug_message(db_read_then_default(db_e, "defaults", "b", "second"));
+show_debug_message(db_read_then_default(db_e, "arrays", 42));
+show_debug_message(db_read_then_default(db_e, "arrays_with_nesting", 7, "a"));
+show_debug_message(db_read_then_default(db_e, "arrays_with_nesting", 7, "b"));
 show_debug_message("");

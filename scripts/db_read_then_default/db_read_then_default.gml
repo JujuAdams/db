@@ -13,7 +13,7 @@
 /// @param [key]
 /// @param ...
 
-function db_read_ext(_database)
+function db_read_then_default(_database)
 {
     if (argument_count < 1) __db_error("Incorrect number of parameters (got ", argument_count, ", was expecting at least 1)");
     

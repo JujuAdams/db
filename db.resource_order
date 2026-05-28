@@ -31,7 +31,7 @@
     {"name":"db_has_data","order":8,"path":"scripts/db_has_data/db_has_data.yy",},
     {"name":"db_most_recent","order":9,"path":"scripts/db_most_recent/db_most_recent.yy",},
     {"name":"db_patch","order":1,"path":"scripts/db_patch/db_patch.yy",},
-    {"name":"db_read_ext","order":3,"path":"scripts/db_read_ext/db_read_ext.yy",},
+    {"name":"db_read_then_default","order":3,"path":"scripts/db_read_then_default/db_read_then_default.yy",},
     {"name":"db_read","order":2,"path":"scripts/db_read/db_read.yy",},
     {"name":"db_set_changed","order":4,"path":"scripts/db_set_changed/db_set_changed.yy",},
     {"name":"db_set_default_data","order":10,"path":"scripts/db_set_default_data/db_set_default_data.yy",},
