@@ -35,9 +35,9 @@ function db_default(_database)
                 {
                     _value = _value[$ _key];
                 }
-                else if (struct_exists_from_hash(_value, variable_get_hash("__default")))
+                else if (struct_exists_from_hash(_value, variable_get_hash("_CATCH_")))
                 {
-                    _value = struct_get_from_hash(_value, variable_get_hash("__default"));
+                    _value = struct_get_from_hash(_value, variable_get_hash("_CATCH_"));
                 }
                 else
                 {
