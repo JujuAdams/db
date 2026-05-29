@@ -13,6 +13,7 @@
     {"name":"__db_error","order":1,"path":"scripts/__db_error/__db_error.yy",},
     {"name":"__db_number_to_string","order":5,"path":"scripts/__db_number_to_string/__db_number_to_string.yy",},
     {"name":"__db_trace","order":2,"path":"scripts/__db_trace/__db_trace.yy",},
+    {"name":"db_add","order":1,"path":"scripts/db_add/db_add.yy",},
     {"name":"db_buffer_create","order":5,"path":"scripts/db_buffer_create/db_buffer_create.yy",},
     {"name":"db_buffer_read","order":4,"path":"scripts/db_buffer_read/db_buffer_read.yy",},
     {"name":"db_buffer_write","order":3,"path":"scripts/db_buffer_write/db_buffer_write.yy",},
