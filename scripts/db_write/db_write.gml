@@ -13,7 +13,7 @@
 /// this function will set the value for empty indexes as `undefined`.
 /// 
 /// Example:
-///   db_write(database, 3.141, "constants", "pi");
+///   db_write(database, 3.141,   "constants", "pi");
 /// will generate the following JSON:
 ///   {
 ///       constants: {
@@ -22,7 +22,17 @@
 ///   }
 /// 
 /// Example:
-///   db_write(database, { item: "bullet", quantity: 2 }, "playerData", 0, "inventory", 3);
+///   db_write(database, "thai baht",   2);
+///   db_write(database, "ghanian cedi",   0);
+/// will generate the following JSON:
+///   [
+///       "ghanian cedi",
+///       undefined,
+///       "thai baht"
+///   ]
+/// 
+/// Example:
+///   db_write(database, { item: "bullet", quantity: 2 },   "playerData", 0, "inventory", 3);
 /// will generate the following JSON:
 ///   {
 ///       playerData: [
@@ -33,10 +43,10 @@
 ///                   undefined,
 ///                   {
 ///                       item: "bullet",
-///                       quantity: 2,
+///                       quantity: 2
 ///                   }
 ///               ]
-///            }
+///           }
 ///       ]
 ///   }
 /// 
