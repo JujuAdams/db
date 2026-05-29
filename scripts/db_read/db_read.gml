@@ -11,15 +11,15 @@
 
 function db_read(_database)
 {
-    if (argument_count < 2) __db_error("Incorrect number of parameters (got ", argument_count, ", was expecting at least 2)");
+    if (argument_count < 1) __db_error("Incorrect number of parameters (got ", argument_count, ", was expecting at least 1)");
     
     with(_database)
     {
         var _value = __data;
         if (_value == undefined) return undefined;
         
-        var _i = 2;
-        repeat(argument_count-2)
+        var _i = 1;
+        repeat(argument_count-1)
         {
             var _key = argument[_i];
             
