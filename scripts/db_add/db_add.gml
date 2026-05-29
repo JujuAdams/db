@@ -1,72 +1,56 @@
 // Feather disable all
 
-/// Writes a value into a database, overwriting a previous value if one exists. Values can be basic types
-/// (string, number, `undefined`, booleans) or a struct or array.
-/// 
-/// Interally, db databases are stored as nested structs and arrays ("JSON"). Keys are used to navigate these
-/// structs and arrays. Keys can be one of two datatypes: strings or integers. If a key is a string, db will
-/// attempt to access a struct using the key as the member variable name. If a key is an integer, db will
-/// attempt to access an array using the key as the array index.
-/// 
-/// When writing values into a database, db will create structs and arrays as necessary to support the keys
-/// that have been used. Arrays will be resized up if required. If empty indexes are required in an array,
-/// this function will set the value for empty indexes as `undefined`.
-/// 
-/// Example:
-///   db_write(database, 3.141,   "constants", "pi");
-/// will generate the following JSON:
-///   {
-///       constants: {
-///           pi: 3.141
-///       }
-///   }
-/// 
-/// Example:
-///   db_write(database, "thai baht",   2);
-///   db_write(database, "ghanian cedi",   0);
-/// will generate the following JSON:
-///   [
-///       "ghanian cedi",
-///       undefined,
-///       "thai baht"
-///   ]
-/// 
-/// Example:
-///   db_write(database, { item: "bullet", quantity: 2 },   "playerData", 0, "inventory", 3);
-/// will generate the following JSON:
-///   {
-///       playerData: [
-///           {
-///               inventory: [
-///                   undefined,
-///                   undefined,
-///                   undefined,
-///                   {
-///                       item: "bullet",
-///                       quantity: 2
-///                   }
-///               ]
-///           }
-///       ]
-///   }
+/// It is a common operation to increment a value in savedata, for example to track progress
+/// towards a quest reward or achievement. This function allows you to increment (or decrement) a
+/// numerical value stored inside a database. This function only works on numerical values although
+/// a value of `undefined` will be treated as `0`.
 /// 
 /// @param database
-/// @param value
+/// @param addValue
 /// @param [key]
 /// @param ...
 
-function db_write(_database, _set_value)
+function db_add(_database, _add_value)
 {
-    if (argument_count < 2) __db_error("Incorrect number of parameters (got ", argument_count, ", was expecting 2 or more)");
+    if (_add_value == undefined)
+    {
+        //Common "do nothing" value, no need to throw an error for this
+        return;
+    }
+    
+    if (not is_numeric(_add_value))
+    {
+        __db_error("`db_add()` only accepts a number for the `addValue` parameter");
+    }
+    
+    if (_add_value == 0)
+    {
+        //No change
+        return;
+    }
+    
+    if (argument_count < 2)
+    {
+        __db_error("Incorrect number of parameters (got ", argument_count, ", was expecting 2 or more)");
+    }
     
     with(_database)
     {
         if (argument_count == 2)
         {
-            if (__data != _set_value)
+            if (__data == undefined)
             {
-                __data = _set_value;
+                __data = _add_value;
                 __changed = true;
+            }
+            else if (is_numeric(__data))
+            {
+                __data += _add_value;
+                __changed = true;
+            }
+            else
+            {
+                __db_error($"Cannot add to a non-numeric value (typeof={typeof(_existingValue)}, value={_existingValue})");
             }
             
             return;
@@ -107,9 +91,17 @@ function db_write(_database, _set_value)
                 {
                     if (_i >= argument_count-1)
                     {
-                        //Final key, write to the struct
-                        if (_node[$ _key] != _set_value) _changed = true;
-                        _node[$ _key] = _set_value;
+                        //Final key, add the value
+                        
+                        var _existingValue = _node[$ _key] ?? 0;
+                        if (is_numeric(_existingValue))
+                        {
+                            _node[$ _key] = _existingValue + _add_value;
+                        }
+                        else
+                        {
+                            __db_error($"Cannot add to a non-numeric value (typeof={typeof(_existingValue)}, value={_existingValue})");
+                        }
                     }
                     else
                     {
@@ -122,12 +114,8 @@ function db_write(_database, _set_value)
                     
                     if (_i >= argument_count-1)
                     {
-                        //Final key, write to the struct
-                        if (_node[$ _key] != _set_value)
-                        {
-                            _node[$ _key] = _set_value;
-                            _changed = true;
-                        }
+                        //Final key, write the value
+                        _node[$ _key] = _add_value;
                     }
                     else if (is_string(argument[_i+1]))
                     {
@@ -157,11 +145,16 @@ function db_write(_database, _set_value)
                 {
                     if (_i >= argument_count-1)
                     {
-                        //Final key, write to the array
-                        if (_node[@ _key] != _set_value)
+                        //Final key, add the value
+                        
+                        var _existingValue = _node[$ _key] ?? 0;
+                        if (is_numeric(_existingValue))
                         {
-                            _node[@ _key] = _set_value;
-                            _changed = true;
+                            _node[$ _key] = _existingValue + _add_value;
+                        }
+                        else
+                        {
+                            __db_error($"Cannot add to a non-numeric value (typeof={typeof(_existingValue)}, value={_existingValue})");
                         }
                     }
                     else
@@ -186,17 +179,10 @@ function db_write(_database, _set_value)
                             ++_j;
                         }
                     }
-                    else
-                    {
-                        if (_i >= argument_count-1)
-                        {
-                            if (_node[_key] != _set_value) _changed = true;
-                        }
-                    }
                     
                     if (_i >= argument_count-1)
                     {
-                        _node[@ _key] = _set_value;
+                        _node[@ _key] = _add_value;
                     }
                     else
                     {
@@ -227,7 +213,6 @@ function db_write(_database, _set_value)
             ++_i;
         }
         
-        if (is_struct(_set_value) || is_array(_set_value)) _changed = true;
-        if (_changed) __changed = true;
+        __changed = true;
     }
 }

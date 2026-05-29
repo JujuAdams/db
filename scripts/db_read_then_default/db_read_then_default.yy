@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"db_read_then_default",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"db_read_then_default",
+  "parent":{
+    "name":"Access",
+    "path":"folders/db/Access.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

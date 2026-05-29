@@ -1,22 +1,23 @@
 // Feather disable all
 
-/// Reads a value from a database. If the value cannot be found then `undefined` will be returned.
-/// This means that this function, unlike `db_read_then_default()`, will ignore values set by
-/// `db_set_default_data()`. Please see `db_write()` for more information regarding database
-/// structure.
+/// Reads the default value for a sequence of keys, as set by `db_set_default_data()`. If default
+/// data cannot be found for the given key then this function will show an error message.
 /// 
 /// @param database
 /// @param [key]
 /// @param ...
 
-function db_read(_database)
+function db_default(_database)
 {
     if (argument_count < 1) __db_error("Incorrect number of parameters (got ", argument_count, ", was expecting at least 1)");
     
     with(_database)
     {
-        var _value = __data;
-        if (_value == undefined) return undefined;
+        var _value = __defaultData;
+        if (_value == undefined)
+        {
+            __db_error("No default data has been set with `db_set_default_data()`");
+        }
         
         var _i = 1;
         repeat(argument_count-1)
@@ -30,9 +31,18 @@ function db_read(_database)
                     __db_error("Key provided is a string (", _key, ") but current data structure is not a struct");
                 }
                 
-                if (not variable_struct_exists(_value, _key)) return undefined;
-                
-                _value = _value[$ _key];
+                if (variable_struct_exists(_value, _key))
+                {
+                    _value = _value[$ _key];
+                }
+                else if (struct_exists_from_hash(_value, variable_get_hash("_CATCH_")))
+                {
+                    _value = struct_get_from_hash(_value, variable_get_hash("_CATCH_"));
+                }
+                else
+                {
+                    __db_error("Struct has no \"__default\" variable and is missing variable \"", _key, "\"");
+                }
             }
             else if (is_numeric(_key))
             {
@@ -46,9 +56,12 @@ function db_read(_database)
                     __db_error("Array index is less than 0 (", _key, ")");
                 }
                 
-                if (_key >= array_length(_value)) return undefined;
+                if (array_length(_value) <= 0)
+                {
+                    __db_error("Template array is empty");
+                }
                 
-                _value = _value[_key];
+                _value = _value[clamp(_key, 0, array_length(_value)-1)];
             }
             else
             {

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__db_constants",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__db_constants",
+  "parent":{
+    "name":"db",
+    "path":"folders/db.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
