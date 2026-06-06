@@ -16,13 +16,13 @@
 ///         },
 ///     });
 ///     
-///     db_read_with_default(db, "audio", "music");    // = 1
-///     db_read_with_default(db, "audio", "sfx");      // = 0.9
+///     db_read_then_default(db, "audio", "music");    // = 1
+///     db_read_then_default(db, "audio", "sfx");      // = 0.9
 ///     db_exists(database, "audio", "sfx");           // = false
 ///     db_write(database, 0.5,   "audio", "sfx");
 ///     db_exists(database, "audio", "sfx");           // = true
-///     db_read_with_default(db, "audio", "sfx");      // = 0.5 (because we set a value)
-///     db_read_with_default(db, "audio", "ambience"); //error! missing value + no default value
+///     db_read_then_default(db, "audio", "sfx");      // = 0.5 (because we set a value)
+///     db_read_then_default(db, "audio", "ambience"); //error! missing value + no default value
 /// 
 /// Arrays data is presumed to be homogenous. This is a fancy way of saying that there should be no
 /// difference in default values between members of an array. You only need to define one element
@@ -38,8 +38,8 @@
 ///         ]
 ///     });
 ///     
-///     db_read_with_default(database, "array", 0, "data"); // = 42
-///     db_read_with_default(database, "array", 1, "data"); // = 42
+///     db_read_then_default(database, "array", 0, "data"); // = 42
+///     db_read_then_default(database, "array", 1, "data"); // = 42
 ///     db_read_with_default(database, "array", 2, "data"); // = 42
 ///     //etc.
 /// 
@@ -56,10 +56,10 @@
 ///         _CATCH_: "jasmine"
 ///     });
 ///     
-///     db_read_with_default(database, "alice");   // = "primose"
-///     db_read_with_default(database, "bob");     // = "tulip"
-///     db_read_with_default(database, "charlie"); // = "jasmine"
-///     db_read_with_default(database, "daisy");   // = "jasmine"
+///     db_read_then_default(database, "alice");   // = "primose"
+///     db_read_then_default(database, "bob");     // = "tulip"
+///     db_read_then_default(database, "charlie"); // = "jasmine"
+///     db_read_then_default(database, "daisy");   // = "jasmine"
 /// 
 /// @param database
 /// @param defaultData
