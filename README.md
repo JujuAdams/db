@@ -219,12 +219,13 @@ SparkleStore uses callback functions. Please see [documentation](https://github.
 ```gml
 /// Save Function
 
+//Create a new buffer that contains raw binary information for the database
 var _buffer = db_buffer_create(database);
-SparkleSave("filename.json", _buffer, function(_status, _buffer)
+
+//Start the save process. The callback function will be
+//executed later when the save completes
+SparkleSave("filename.json", _buffer, function(_status)
 {
-    //Clean up
-    buffer_delete(_buffer);
-    
     if (_status)
     {
     	//File saved successfully
@@ -234,6 +235,9 @@ SparkleSave("filename.json", _buffer, function(_status, _buffer)
     	//File failed to save
     }
 });
+
+//Make sure we clean up the buffer after we start saving
+buffer_delete(_buffer);
 ```
 
 #### Loading:
@@ -241,8 +245,11 @@ SparkleSave("filename.json", _buffer, function(_status, _buffer)
 ```gml
 /// Load Function
 
+//Start the load process. The callback function will be
+//executed later when the load completes
 SparkleLoad("filename.json", _buffer, function(_status, _buffer)
 {
+    //Convert the raw binary data into a database
     var _loadedDatabase = _status? db_buffer_read(_buffer) : undefined;
 
     //Clean up
